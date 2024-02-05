@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 @layer base {
-  * {
-    font-family: "Montserrat";
+  body {
+    overflow: hidden;
   }
 }

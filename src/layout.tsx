@@ -3,7 +3,7 @@ import Navbar from "./components/organism/navbar";
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   return (
-    <div>
+    <div className="overflow-y-auto scroll-smooth h-screen">
       <Navbar />
       {children}
       <Footer />
