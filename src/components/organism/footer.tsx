@@ -24,15 +24,15 @@ const footerLinks = [
   },
   {
     title: "Volunteer with us",
-    link: "/volunteer-with-us",
+    link: "/get-involved",
   },
   {
     title: "Partner with us",
-    link: "/partner-with-us",
+    link: "/get-involved",
   },
   {
     title: "Our Gallery",
-    link: "/our-gallery",
+    link: "/gallery",
   },
   {
     title: "Events",
@@ -40,7 +40,7 @@ const footerLinks = [
   },
   {
     title: "Donate",
-    link: "/donate",
+    link: "/donate-now",
   },
 ];
 const phoneNumbers = [

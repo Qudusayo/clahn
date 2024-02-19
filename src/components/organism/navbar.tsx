@@ -3,7 +3,7 @@ import Button from "../ui/button";
 
 const Navbar = () => {
   return (
-    <nav className="flex items-center py-4 px-12 drop-shadow-md bg-white">
+    <nav className="flex items-center py-4 px-12 drop-shadow-md bg-white z-50">
       <img src={logo} alt="logo" className="w-48" />
       <ul className="flex gap-20 items-center justify-center flex-1">
         <li>What we do</li>
