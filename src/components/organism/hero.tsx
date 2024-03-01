@@ -52,7 +52,7 @@ function Hero({
         <p className="text-balance text-xl">{description}</p>
         {showDonateButton && <Button>Donate</Button>}
       </div>
-      <div className="relative w-4/5 max-w-[600px]">
+      <div className="relative w-4/5 max-w-[600px] mx-auto">
         <img
           src={heroImg}
           alt="Your Image"
