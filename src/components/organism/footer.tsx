@@ -59,7 +59,7 @@ const Footer = () => {
         }}
         className="flex px-16 py-3 gap-10 bg-contain"
       >
-        <div className="py-12 flex flex-col items-start gap-10">
+        <div className="py-12 flex flex-col items-start gap-10 flex-1">
           <h2 className="text-3xl font-bold text-[#1B1717]">Join our team</h2>
           <p>
             Join our dynamic team, contribute your skills, and together, let's
@@ -69,7 +69,7 @@ const Footer = () => {
           </p>
           <Button className="h-14 rounded-3xl min-w-40">Volunteer now</Button>
         </div>
-        <div className="border-l border-l-[#5E5E5E] pl-10 py-12 flex flex-col items-start gap-10">
+        <div className="border-l border-l-[#5E5E5E] pl-10 py-12 flex flex-col items-start gap-10 flex-1">
           <h2 className="text-3xl font-bold text-[#1B1717]">
             Make a difference
           </h2>

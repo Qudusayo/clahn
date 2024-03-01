@@ -28,7 +28,7 @@ function Hero({
 
   return (
     <div
-      className="min-h-[80vh] grid grid-cols-2 items-center px-16 relative"
+      className="min-h-[80vh] grid grid-cols-2 items-center px-16 relative -z-20"
       style={{
         background: !colouredBg
           ? `url(${HeroBg}), lightgray 50% / cover no-repeat`
@@ -52,14 +52,15 @@ function Hero({
         <p className="text-balance text-xl">{description}</p>
         {showDonateButton && <Button>Donate</Button>}
       </div>
-      <div className="order-1 relative col-span-1 flex items-center justify-center">
+      <div className="relative w-4/5 max-w-[600px]">
         <img
           src={heroImg}
-          alt="selfie"
-          className="w-4/5 max-w-[600px] object-cover rounded-3xl z-10 relative"
+          alt="Your Image"
+          className="object-cover w-full h-full z-10 rounded-t-3xl"
         />
-        <div className="bg-[#03874894] w-[515px] h-[239px] rounded-t-3xl absolute -top-5 mx-auto"></div>
+        <div className="absolute h-2/4 w-[110%] left-1/2 transform -translate-x-1/2 -top-[5%] bg-[#03874894] -z-10 rounded-t-3xl"></div>
       </div>
+
       <div className="bg-[#03874894] h-[90%] w-3 absolute"></div>
     </div>
   );

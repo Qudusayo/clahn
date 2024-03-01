@@ -32,3 +32,7 @@ export { default as Ojo } from "./team/ojo.png";
 export { default as Olayinka } from "./team/olayinka.png";
 export { default as Oluwayomi } from "./team/oluwayomi.png";
 export { default as Temitope } from "./team/temitope.png";
+
+// Event Images
+export { default as EventImg } from "./events/past-event.jpeg";
+export { default as UpComingEventImg } from "./events/upcoming-event.jpeg";
