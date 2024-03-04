@@ -3,9 +3,9 @@ import Button from "../ui/button";
 
 const Navbar = () => {
   return (
-    <nav className="flex items-center py-4 px-12 drop-shadow-md bg-white z-50">
+    <nav className="z-50 flex items-center bg-white px-12 py-4 drop-shadow-md">
       <img src={logo} alt="logo" className="w-48" />
-      <ul className="flex gap-20 items-center justify-center flex-1">
+      <ul className="flex flex-1 items-center justify-center gap-20">
         <li>What we do</li>
         <li>Who we are</li>
         <li>Our impacts</li>

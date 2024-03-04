@@ -28,7 +28,7 @@ function Hero({
 
   return (
     <div
-      className="min-h-[80vh] grid grid-cols-2 items-center px-16 relative -z-20"
+      className="relative -z-20 grid grid-cols-1 items-center gap-8 py-12 md:min-h-[80vh] md:grid-cols-2"
       style={{
         background: !colouredBg
           ? `url(${HeroBg}), lightgray 50% / cover no-repeat`
@@ -37,31 +37,33 @@ function Hero({
         backgroundColor: !colouredBg ? "#fafbfbb3" : "#BFFFE0",
       }}
     >
-      <div className=" col-span-1 flex flex-col items-start gap-10">
+      <div className=" col-span-1 mx-auto flex w-4/5 flex-col items-start gap-8 md:gap-10">
         {routeTitle && (
-          <div className="bg-white text-[#1B1717] flex items-center justify-center gap-2 text-xl p-4 rounded-2xl border-l-2 border-[#188038]">
+          <div className="hidden items-center justify-center gap-2 rounded-2xl border-l-2 border-[#188038] bg-white p-4 text-xl text-[#1B1717] md:flex">
             <span>Home</span>
             <span className="text-balance">/</span>
-            <div className="text-balance relative">
+            <div className="relative text-balance">
               <span>{routeTitle}</span>
-              <div className="absolute w-3/5 h-1 bg-[#F36F00] rounded-lg bottom-0"></div>
+              <div className="absolute bottom-0 h-1 w-3/5 rounded-lg bg-[#F36F00]"></div>
             </div>
           </div>
         )}
-        <h1 className="text-6xl font-bold text-balance text-left">{title}</h1>
-        <p className="text-balance text-xl">{description}</p>
+        <h1 className="text-balance text-left text-4xl font-bold md:text-6xl">
+          {title}
+        </h1>
+        <p className="text-base md:text-balance md:text-xl">{description}</p>
         {showDonateButton && <Button>Donate</Button>}
       </div>
-      <div className="relative w-4/5 max-w-[600px] mx-auto">
+      <div className="relative -order-1 mx-auto w-4/5 max-w-[600px] md:order-1">
         <img
           src={heroImg}
           alt="Your Image"
-          className="object-cover w-full h-full z-10 rounded-t-3xl"
+          className="z-10 h-full w-full rounded-t-3xl object-cover"
         />
-        <div className="absolute h-2/4 w-[110%] left-1/2 transform -translate-x-1/2 -top-[5%] bg-[#03874894] -z-10 rounded-t-3xl"></div>
+        <div className="absolute -top-[3%] left-1/2 -z-10 h-2/4 w-[107%] -translate-x-1/2 transform rounded-t-3xl bg-[#03874894]"></div>
       </div>
 
-      <div className="bg-[#03874894] h-[90%] w-3 absolute"></div>
+      <div className="absolute h-[90%] w-3 bg-[#03874894]"></div>
     </div>
   );
 }

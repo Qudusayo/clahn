@@ -1,5 +1,6 @@
 import { Icons } from "@/assets/icons";
 import { GetInvolvedHeroImg, WhoWeAreImg } from "@/assets/images";
+import MaxComponent from "@/components/organism/MaxComponent";
 import FlexCard from "@/components/organism/flex-card";
 import Hero from "@/components/organism/hero";
 import Button from "@/components/ui/button";
@@ -34,93 +35,95 @@ const GetInvolved = () => {
         borderPositon="top-right"
         image={WhoWeAreImg}
       />
-      <div className="bg-[#F6F6F6] pt-16 pb-20">
-        <h2 className="text-center text-2xl font-semibold pb-16">
-          Reach out to CLAHN INITIATIVE
-        </h2>
-        <form className="bg-[#FFF] max-w-5xl mx-auto p-12 rounded-xl space-y-10">
-          <div>
-            <span>
-              Fields marked with an <Req /> are required
-            </span>
-          </div>
-
-          <div className="grid grid-cols-2 gap-5">
-            <div className="space-y-3">
-              <label htmlFor="full-name">
-                Full Name
-                <Req />
-              </label>
-              <input
-                type="text"
-                id="full-name"
-                className="bg-[#D9D9D9] border border-gray-300 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-              />
+      <div className="bg-[#F6F6F6] pb-20 pt-16">
+        <MaxComponent>
+          <h2 className="text-balance pb-8 text-left text-2xl font-semibold md:pb-16 md:text-center">
+            Reach out to CLAHN INITIATIVE
+          </h2>
+          <form className="mx-auto max-w-5xl space-y-10 rounded-xl bg-[#FFF] p-6 md:p-12">
+            <div>
+              <span>
+                Fields marked with an <Req /> are required
+              </span>
             </div>
-            <div className="space-y-3">
-              <label htmlFor="email">
-                Email
-                <Req />
-              </label>
-              <input
-                type="email"
-                id="email"
-                className="bg-[#D9D9D9] border border-gray-300 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 "
-              />
+
+            <div className="grid gap-5 md:grid-cols-2">
+              <div className="space-y-3">
+                <label htmlFor="full-name">
+                  Full Name
+                  <Req />
+                </label>
+                <input
+                  type="text"
+                  id="full-name"
+                  className="block w-full rounded-lg border border-gray-300 bg-[#D9D9D9] p-2.5 text-base text-gray-900 focus:border-blue-500 focus:ring-blue-500 "
+                />
+              </div>
+              <div className="space-y-3">
+                <label htmlFor="email">
+                  Email
+                  <Req />
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  className="block w-full rounded-lg border border-gray-300 bg-[#D9D9D9] p-2.5 text-base text-gray-900 focus:border-blue-500 focus:ring-blue-500 "
+                />
+              </div>
             </div>
-          </div>
 
-          <div className="space-y-3">
-            <label htmlFor="purpose-of-inquiry">
-              Purpose of inquiry <Req />
-            </label>
-            <select
-              id="purpose-of-inquiry"
-              className="bg-[#D9D9D9] border border-gray-300 text-gray-900 text-base rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-            >
-              <option value="volunteer">Volunteer</option>
-              <option value="partner">Partner</option>
-              <option value="donate">Donate</option>
-            </select>
-          </div>
+            <div className="space-y-3">
+              <label htmlFor="purpose-of-inquiry">
+                Purpose of inquiry <Req />
+              </label>
+              <select
+                id="purpose-of-inquiry"
+                className="block w-full rounded-lg border border-gray-300 bg-[#D9D9D9] p-2.5 text-base text-gray-900 focus:border-blue-500 focus:ring-blue-500"
+              >
+                <option value="volunteer">Volunteer</option>
+                <option value="partner">Partner</option>
+                <option value="donate">Donate</option>
+              </select>
+            </div>
 
-          <div className="space-y-3">
-            <label htmlFor="message">
-              Message <Req />
-            </label>
-            <textarea
-              id="message"
-              className="block p-2.5 w-full text-sm text-gray-900 bg-[#D9D9D9] rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500"
-              rows={10}
-            ></textarea>
-          </div>
+            <div className="space-y-3">
+              <label htmlFor="message">
+                Message <Req />
+              </label>
+              <textarea
+                id="message"
+                className="block w-full rounded-lg border border-gray-300 bg-[#D9D9D9] p-2.5 text-sm text-gray-900 focus:border-blue-500 focus:ring-blue-500"
+                rows={10}
+              ></textarea>
+            </div>
 
-          <Button>Submit</Button>
-        </form>
+            <Button>Submit</Button>
+          </form>
+        </MaxComponent>
 
-        <div className="grid grid-cols-3 max-w-5xl mx-auto mt-12">
-          <div className="space-y-4">
-            <div className="bg-white rounded-full w-fit border border-[#5e5e5e4d]">
-              <Icons.Message className="w-12 h-12" />
+        <MaxComponent className="mx-auto mt-12 grid max-w-5xl grid-cols-6 gap-y-10">
+          <div className="col-span-3 space-y-4 md:col-span-2">
+            <div className="w-fit rounded-full border border-[#5e5e5e4d] bg-white">
+              <Icons.Message className="h-12 w-12" />
             </div>
             <p>Say Hi!</p>
             <p>info@clahninitiative.org</p>
           </div>
-          <div className="space-y-4">
-            <div className="bg-white rounded-full w-fit border border-[#5e5e5e4d]">
-              <Icons.Call className="w-12 h-12" />
+          <div className="col-span-3 space-y-4 md:col-span-2">
+            <div className="w-fit rounded-full border border-[#5e5e5e4d] bg-white">
+              <Icons.Call className="h-12 w-12" />
             </div>
             <p>Let's Talk</p>
             <p> +234 817 7477 995</p>
           </div>
-          <div className="space-y-4">
-            <div className="bg-white rounded-full w-fit border border-[#5e5e5e4d]">
-              <Icons.Location className="w-12 h-12" />
+          <div className="col-span-full space-y-4 md:col-span-2">
+            <div className="w-fit rounded-full border border-[#5e5e5e4d] bg-white">
+              <Icons.Location className="h-12 w-12" />
             </div>
             <p>Our Location</p>
             <p>18, Labake Estate, Akobo, Ibadan, Ibadan, Oyo State, Nigeria.</p>
           </div>
-        </div>
+        </MaxComponent>
       </div>
     </Layout>
   );
