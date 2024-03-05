@@ -44,7 +44,7 @@ const FlexCard = ({
       </div>
       <div
         className={`mx-auto flex w-4/5 flex-col items-start justify-center  gap-4 md:gap-8 ${
-          reversed ? "order-1" : "order-2"
+          reversed ? "-order-1" : "order-1"
         }`}
       >
         <h2 className="text-4xl font-bold"> {title} </h2>

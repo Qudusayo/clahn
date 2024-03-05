@@ -90,11 +90,11 @@ const BlockContent = ({
 };
 
 const Event = () => (
-  <div className="flex w-full flex-col items-center gap-5 rounded-3xl bg-white lg:flex-row lg:gap-10">
+  <div className="flex w-full flex-col items-center gap-5 rounded-3xl bg-white md:flex-row md:gap-10">
     <img
       src={WhoWeAreImg}
       alt="selfie"
-      className=" w-full max-w-96 rounded-3xl object-cover"
+      className="w-full rounded-3xl object-cover md:max-w-96"
     />
     <div className="space-y-4 px-4 pb-8 md:px-0 md:pb-0">
       <h2 className="text-2xl font-semibold text-[#1B1717]">

@@ -1,5 +1,6 @@
 import { Icons } from "@/assets/icons";
 import { EventImg, EventsHeroImg, UpComingEventImg } from "@/assets/images";
+import MaxComponent from "@/components/organism/MaxComponent";
 import Hero from "@/components/organism/hero";
 import Layout from "@/layout";
 
@@ -21,14 +22,14 @@ const Events = () => {
         <h2 className="pb-16 text-center text-2xl font-semibold">
           Past Events
         </h2>
-        <div className="mx-auto grid max-w-6xl grid-cols-3 gap-4">
+        <MaxComponent className="mx-auto grid max-w-6xl grid-cols-1 gap-4 md:grid-cols-2 md:gap-20 lg:grid-cols-3">
           <PastEventCard />
           <PastEventCard />
           <PastEventCard />
           <PastEventCard />
           <PastEventCard />
           <PastEventCard />
-        </div>
+        </MaxComponent>
       </div>
     </Layout>
   );
@@ -50,13 +51,13 @@ const PastEventCard = () => {
 };
 
 const UpcomingEvent = () => (
-  <div className="mx-auto flex max-w-6xl items-center gap-10 rounded-3xl border border-[#5e5e5e4d] bg-white pr-10">
+  <MaxComponent className="mx-auto flex max-w-6xl flex-col items-center rounded-3xl border border-[#5e5e5e4d] bg-white md:flex-row md:gap-10 md:pr-10">
     <img
       src={UpComingEventImg}
       alt="selfie"
-      className=" max-w-96 rounded-l-3xl border-r border-[#5e5e5e4d] object-cover"
+      className="w-full rounded-t-3xl border-r border-[#5e5e5e4d] object-cover md:max-w-96 md:rounded-l-3xl md:rounded-t-none"
     />
-    <div className="space-y-4">
+    <div className="space-y-4 px-4 pb-8 md:px-0 md:pb-0">
       <h2 className="text-2xl font-semibold text-[#1B1717]">
         Strategies for promoting a clean and sustainable environment in Nigeria
       </h2>
@@ -65,7 +66,7 @@ const UpcomingEvent = () => (
         annual plan 2025. The advisory board meeting is a closed meeting that
         includes the board and our three advisory board members.
       </p>
-      <div className="flex items-center gap-10">
+      <div className="flex items-center gap-10 text-sm md:text-base">
         <div className="flex items-center gap-4">
           <Icons.Calender className="w-7" />
           <span className="text-[#5E5E5E]">16th feb, 2024.</span>
@@ -76,7 +77,7 @@ const UpcomingEvent = () => (
         </div>
       </div>
     </div>
-  </div>
+  </MaxComponent>
 );
 
 export default Events;

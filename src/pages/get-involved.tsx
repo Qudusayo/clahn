@@ -101,7 +101,7 @@ const GetInvolved = () => {
           </form>
         </MaxComponent>
 
-        <MaxComponent className="mx-auto mt-12 grid max-w-5xl grid-cols-6 gap-y-10">
+        <div className="mx-auto mt-12 grid w-[90%] max-w-5xl grid-cols-6 gap-y-10 ">
           <div className="col-span-3 space-y-4 md:col-span-2">
             <div className="w-fit rounded-full border border-[#5e5e5e4d] bg-white">
               <Icons.Message className="h-12 w-12" />
@@ -123,7 +123,7 @@ const GetInvolved = () => {
             <p>Our Location</p>
             <p>18, Labake Estate, Akobo, Ibadan, Ibadan, Oyo State, Nigeria.</p>
           </div>
-        </MaxComponent>
+        </div>
       </div>
     </Layout>
   );

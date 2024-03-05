@@ -2,6 +2,7 @@ import { useResolvedPath } from "react-router-dom";
 import Button from "../ui/button";
 import { HeroBg } from "@/assets/images";
 import { useEffect, useState } from "react";
+import { clsx } from "clsx";
 
 function Hero({
   heroImg,
@@ -9,12 +10,14 @@ function Hero({
   description,
   colouredBg,
   showDonateButton,
+  className,
 }: {
   heroImg: string;
   title: React.ReactNode | string;
   description: string;
   colouredBg?: boolean;
   showDonateButton?: boolean;
+  className?: string;
 }) {
   const { pathname } = useResolvedPath("");
   const [routeTitle, setRouteTitle] = useState("");
@@ -28,7 +31,10 @@ function Hero({
 
   return (
     <div
-      className="relative -z-20 grid grid-cols-1 items-center gap-8 py-12 md:min-h-[80vh] md:grid-cols-2"
+      className={clsx(
+        "relative -z-20 grid grid-cols-1 items-center gap-8 py-12 md:min-h-[80vh] md:grid-cols-2",
+        className,
+      )}
       style={{
         background: !colouredBg
           ? `url(${HeroBg}), lightgray 50% / cover no-repeat`

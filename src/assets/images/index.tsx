@@ -35,4 +35,10 @@ export { default as Temitope } from "./team/temitope.png";
 
 // Event Images
 export { default as EventImg } from "./events/past-event.jpeg";
-export { default as UpComingEventImg } from "./events/upcoming-event.jpeg";
+export { default as UpComingEventImg } from "./events/upcoming-event.png";
+
+// Preview Images
+export { default as PreviewDirt1 } from "./views/preview_1.png";
+export { default as PreviewDirt2 } from "./views/preview_2.png";
+export { default as PreviewDirt3 } from "./views/preview_3.png";
+export { default as PreviewDirt4 } from "./views/preview_4.png";
