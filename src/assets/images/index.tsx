@@ -2,6 +2,7 @@
 export { default as HeroBg } from "./bg/hero.png";
 export { default as FooterBg } from "./bg/footer-bg.png";
 export { default as MissionAndVisionBG } from "./bg/mission-and-vision.png";
+export { default as MaskImg } from "./bg/mask.png";
 
 // Icons
 export { default as FooterLogo } from "./footer-logo.png";
@@ -42,3 +43,14 @@ export { default as PreviewDirt1 } from "./views/preview_1.png";
 export { default as PreviewDirt2 } from "./views/preview_2.png";
 export { default as PreviewDirt3 } from "./views/preview_3.png";
 export { default as PreviewDirt4 } from "./views/preview_4.png";
+export { default as PreviewClean1 } from "./views/clean_preview_1.png";
+export { default as PreviewClean2 } from "./views/clean_preview_2.png";
+export { default as PreviewClean3 } from "./views/clean_preview_3.png";
+export { default as PreviewClean4 } from "./views/clean_preview_4.png";
+
+// Partner Images
+export { default as Partner1 } from "./partners/partner-1.png";
+export { default as Partner2 } from "./partners/partner-2.png";
+export { default as Partner3 } from "./partners/partner-3.png";
+export { default as Partner4 } from "./partners/partner-4.png";
+export { default as Partner5 } from "./partners/partner-5.png";

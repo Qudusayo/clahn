@@ -53,6 +53,60 @@ const phoneNumbers = [
 const Footer = () => {
   return (
     <>
+      <section className="bg-[#BFFFE0] py-20">
+        <MaxComponent className="grid grid-cols-5 gap-10">
+          <div className="col-span-full flex flex-col justify-center gap-8 md:col-span-2">
+            <h2 className="text-2xl font-bold md:text-3xl">
+              Add a splash of eco-fun to your{" "}
+              <span className="text-[#E77F28]">inbox</span>
+            </h2>
+            <span>
+              Keep up to date with the work we are doing to provide
+              opportunities for marginalised communities around the world.
+            </span>
+          </div>
+          <form
+            action="#"
+            className="col-span-full space-y-8 rounded-3xl bg-[#FFF] p-8 py-12 md:col-span-3 md:col-start-3"
+          >
+            <div className="grid gap-10 md:grid-cols-2">
+              <div className="space-y-5">
+                <label htmlFor="firstName">First Name</label>
+                <input
+                  className="block w-full rounded-lg border border-gray-300 p-2.5 text-base text-gray-900 focus:border-blue-500 focus:ring-blue-500 "
+                  type="text"
+                  name="firstName"
+                  id="firstName"
+                />
+              </div>
+              <div className="space-y-5">
+                <label htmlFor="lastName">Last Name</label>
+                <input
+                  className="block w-full rounded-lg border border-gray-300 p-2.5 text-base text-gray-900 focus:border-blue-500 focus:ring-blue-500 "
+                  type="text"
+                  name="lastName"
+                  id="lastName"
+                />
+              </div>
+            </div>
+            <div className="space-y-5">
+              <label htmlFor="email">Email</label>
+              <input
+                className="block w-full rounded-lg border border-gray-300 p-2.5 text-base text-gray-900 focus:border-blue-500 focus:ring-blue-500 "
+                type="email"
+                name="email"
+                id="email"
+              />
+            </div>
+            <div>
+              <span>
+                I would like to receive information about volunteering
+              </span>
+            </div>
+            <Button className="h-14 min-w-40 rounded-3xl">Subscribe</Button>
+          </form>
+        </MaxComponent>
+      </section>
       <section
         style={{
           background: `url(${FooterBg}), lightgray 0px 0px / 100% 277.457% no-repeat`,
@@ -112,7 +166,7 @@ const Footer = () => {
             </div>
           </div>
           <div className="col-span-4 grid grid-cols-5 gap-10 md:col-span-5 md:gap-0 md:pl-4">
-            <div className="col-span-full md:col-span-2 order-1">
+            <div className="order-1 col-span-full md:col-span-2">
               <h2 className="mb-6 font-bold text-white">Socials</h2>
               <div className="grid grid-cols-3 flex-col gap-4 md:flex md:space-y-4">
                 <a href="#">
@@ -135,9 +189,9 @@ const Footer = () => {
                 </a>
               </div>
             </div>
-            <div className="col-span-full order-2"></div>
-            <div className="col-span-full order-3"></div>
-            <div className="col-span-full order-4"></div>
+            <div className="order-2 col-span-full"></div>
+            <div className="order-3 col-span-full"></div>
+            <div className="order-4 col-span-full"></div>
             <div className="-order-1 col-span-full flex flex-col gap-4 md:order-1 md:col-span-3">
               <h2 className="mb-2 font-bold text-white">Our Contact</h2>
               <address className="text-sm text-white md:text-base">
