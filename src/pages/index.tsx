@@ -1,118 +1,296 @@
-import Image from "next/image";
-import { Inter } from "next/font/google";
+import FlexCard from "@/components/organism/flex-card";
+import Layout from "@/layout";
+import {
+  EventImg,
+  HomeHeroImg,
+  OurImpactsImg,
+  Partner1,
+  Partner2,
+  Partner3,
+  Partner4,
+  Partner5,
+  PreviewClean1,
+  PreviewClean2,
+  PreviewClean3,
+  PreviewClean4,
+  PreviewDirt1,
+  PreviewDirt2,
+  PreviewDirt3,
+  PreviewDirt4,
+  SupportOurMissionImg,
+  WhatWeDoImg,
+  WhoWeAreImg,
+  DreamHeroImg,
+} from "@/assets/images";
+import Hero from "@/components/organism/hero";
+import clsx from "clsx";
+import MaxComponent from "@/components/organism/MaxComponent";
+import { useState } from "react";
+import { createClient } from "contentful";
+import { CONTENT_TYPE, IEvent, IEventFields } from "@/types/contentful";
 
-const inter = Inter({ subsets: ["latin"] });
+const Home = ({
+  isPastEvent,
+  events,
+}: {
+  isPastEvent: boolean;
+  events: IEvent[];
+}) => {
+  const [dirtView, setDirtView] = useState(true);
 
-export default function Home() {
   return (
-    <main
-      className={`flex min-h-screen flex-col items-center justify-between p-24 ${inter.className}`}
-    >
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/pages/index.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <Layout>
+      <Hero
+        heroImg={HomeHeroImg.src}
+        title={
+          <>
+            We elevate wellness through{" "}
+            <span className="text-[#E77F28]">educational webinars</span>
+          </>
+        }
+        description="CLAHN initiative envisions a sustainable environment where cleanliness
+        and healthy living is the new order."
+        showDonateButton
+        colouredBg
+        className="pb-32"
+      />
+      <div className="relative -top-24 mx-auto grid w-[90%] max-w-5xl grid-cols-2 gap-y-4 rounded-3xl bg-white py-5 shadow-md md:-top-14 md:grid-cols-4">
+        <HeroCard title="6" content="Years" />
+        <HeroCard className="border-l" title="30" content="Webinars" />
+        <HeroCard className="md:border-l" title="6" content="Projects" />
+        <HeroCard className="border-l" title="14" content="Outreaches" />
+      </div>
+      <FlexCard
+        title="Who We Are"
+        content="CLAHN Initiative is an independent, environmental nonprofit. We are on a mission to solve the world's most complex systemic environmental challenges—on the ground, at scale, and with urgency"
+        buttonTitle="Learn More"
+        borderPositon="top-right"
+        image={WhoWeAreImg.src}
+      />
+      <FlexCard
+        title="What we do"
+        content="CLAHN Initiative is an independent, environmental nonprofit. We are on a mission to solve the world's most complex systemic environmental challenges—on the ground, at scale, and with urgency"
+        buttonTitle="Donate now"
+        reversed
+        borderPositon="bottom-left"
+        image={WhatWeDoImg.src}
+      />
+      <FlexCard
+        title="Our Impacts"
+        content="CLAHN Initiative is an independent, environmental nonprofit. We are on a mission to solve the world's most complex systemic environmental challenges—on the ground, at scale, and with urgency systemic environmental challenges—on the ground, at scale, and with urgency."
+        buttonTitle="Donate now"
+        borderPositon="top-right"
+        image={OurImpactsImg.src}
+      />
+      <div>
+        <div className="bg-[#BFFFE0] p-2 py-4 md:py-8">
+          <h2 className="text-center font-bold uppercase text-[#1B1717] md:text-2xl">
+            SEE WHAT WE HAVE DONE TO THE EARTH
+          </h2>
+        </div>
+        <div className="relative h-96 md:h-[100vh] md:max-h-[1024px]">
+          <div
+            className={clsx(
+              "absolute inset-0 m-auto flex h-24 w-24 cursor-pointer items-center justify-center rounded-full p-3 text-center text-[10px] text-white transition-all duration-1000 md:h-40 md:w-40 md:text-xs",
+              dirtView ? "bg-black" : "bg-[#0CBE93]"
+            )}
+            onClick={() => setDirtView(false)}
           >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+            {dirtView
+              ? "Click here to clean up this mess"
+              : "Thank you! Anyone can make a difference"}
+          </div>
+          <DirtView dirtView={dirtView} />
+          <CleanView dirtView={dirtView} />
+        </div>
+      </div>
+      <FlexCard
+        title="Support Our Mission"
+        content="Here's an opportunity for you to become a world changer, get involved in the movement to make your community healthier! Your contribution can make a significant impact on our ability to provide vital services, education, and resources to those in need."
+        buttonTitle="Donate Now"
+        borderPositon="top-right"
+        image={SupportOurMissionImg.src}
+        reversed
+      />
+
+      <MaxComponent className="my-28 space-y-10">
+        <h2 className="text-center text-4xl font-bold">Our Partners</h2>
+        <div className="grid grid-cols-5 gap-10">
+          {[Partner1, Partner2, Partner3, Partner4, Partner5].map(
+            (partner, index) => (
+              <PartnerCard key={index} image={partner.src} />
+            )
+          )}
+        </div>
+      </MaxComponent>
+
+      <div
+        className="flex h-screen max-h-[446px] min-h-[357px] flex-col justify-center space-y-0 text-center"
+        style={{
+          background: `linear-gradient(rgba(3, 135, 72, 0.31), rgba(3, 135, 72, 0.31)), url(${DreamHeroImg.src}) no-repeat center center/cover`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
+      >
+        <h2 className="text-center text-9xl font-bold leading-10 text-[#F36F00]">
+          “
+        </h2>
+        <div>
+          <h2 className="text-3xl font-bold text-white">
+            “Team work makes dream work”
+          </h2>
+          <p className="text-xl text-white">
+            Mide Arowosegbe, Founder Clahn initiative
+          </p>
         </div>
       </div>
 
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-full sm:before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full sm:after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700/10 after:dark:from-sky-900 after:dark:via-[#0141ff]/40 before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+      <MaxComponent className="my-28 space-y-10">
+        <h2 className="text-center text-4xl font-bold">
+          {isPastEvent ? "Past Events" : "Upcoming Events"}
+        </h2>
 
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Discover and deploy boilerplate example Next.js&nbsp;projects.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50 text-balance`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+        <div className="mx-auto grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-10 lg:grid-cols-3">
+          {events.map((event) => (
+            <EventCard
+              key={event.sys.id}
+              event={event.fields as IEventFields}
+            />
+          ))}
+        </div>
+      </MaxComponent>
+    </Layout>
   );
+};
+
+const PartnerCard = ({ image }: { image: string }) => {
+  return (
+    <div className="flex max-h-[171px] items-center justify-center bg-[#EBF4F2] px-10 py-10">
+      <img src={image} alt="Partner 1" className="w-auto" />
+    </div>
+  );
+};
+
+const ImageCard = ({ image }: { image: string }) => {
+  return (
+    <div
+      style={{
+        backgroundImage: `url(${image})`,
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+      }}
+    ></div>
+  );
+};
+
+const DirtView = ({ dirtView }: { dirtView: boolean }) => (
+  <div
+    className={clsx(
+      "absolute top-0 -z-10 grid h-full w-full grid-cols-2 gap-2 transition-opacity duration-1000 md:gap-4",
+      dirtView ? "opacity-100" : "opacity-0"
+    )}
+  >
+    {[PreviewDirt1, PreviewDirt2, PreviewDirt3, PreviewDirt4].map(
+      (image, index) => (
+        <ImageCard key={index} image={image.src} />
+      )
+    )}
+  </div>
+);
+
+const CleanView = ({ dirtView }: { dirtView: boolean }) => (
+  <div
+    className={clsx(
+      "absolute top-0 -z-10 grid h-full w-full grid-cols-2 gap-2 transition-opacity duration-1000 md:gap-4",
+      dirtView ? "opacity-0" : "opacity-100"
+    )}
+  >
+    {[PreviewClean1, PreviewClean2, PreviewClean3, PreviewClean4].map(
+      (image, index) => (
+        <ImageCard key={index} image={image.src} />
+      )
+    )}
+  </div>
+);
+
+const HeroCard = ({
+  title,
+  content,
+  className,
+}: {
+  title: string;
+  content: string;
+  className?: string;
+}) => {
+  return (
+    <div className={clsx("space-y-2 text-center", className)}>
+      <h2 className="text-3xl font-bold text-[#E77F28] md:text-5xl">{title}</h2>
+      <p>{content}</p>
+    </div>
+  );
+};
+
+const EventCard = ({ event }: { event: IEventFields }) => {
+  return (
+    <div className="">
+      <img
+        src={"https:" + event.banner?.fields?.file?.url}
+        alt={event.title}
+        className="rounded-3xl object-cover object-center"
+      />
+      <div className="space-y-1 py-2">
+        <span className="text-sm text-[#1B1717]">
+          {new Date(event.date as string).toDateString()}
+        </span>
+        <h2 className="text-xl font-bold">{event.title}</h2>
+        <p>{event.description}</p>
+      </div>
+    </div>
+  );
+};
+
+export async function getStaticProps() {
+  const client = createClient({
+    space: process.env.CONTENTFUL_SPACE_ID!,
+    accessToken: process.env.CONTENTFUL_ACCESS_TOKEN!,
+  });
+
+  const response = await client.getEntries<{
+    fields: IEventFields;
+    contentTypeId: CONTENT_TYPE;
+  }>({
+    content_type: "event",
+    select: [
+      "sys.id",
+      "fields.banner",
+      "fields.title",
+      "fields.description",
+      "fields.date",
+      "fields.linkToEvent",
+    ],
+  });
+
+  // If no upcoming events, return recent 3 events
+  const events = response.items
+    .filter((event) => {
+      const eventFields = event.fields as IEventFields;
+      const eventDate = new Date(eventFields.date as string);
+      const currentDate = new Date();
+      return eventDate > currentDate;
+    })
+    .sort((a, b) => {
+      const aDate = new Date((a.fields as IEventFields).date as string);
+      const bDate = new Date((b.fields as IEventFields).date as string);
+      return aDate.getTime() - bDate.getTime();
+    });
+
+  return {
+    props: {
+      isPastEvent: events.length === 0,
+      events: events.length ? events.slice(0, 3) : response.items.slice(0, 3),
+    },
+    revalidate: 1,
+  };
 }
+
+export default Home;
