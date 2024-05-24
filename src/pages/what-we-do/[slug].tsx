@@ -19,7 +19,6 @@ const Slug = ({
     contentTypeId: CONTENT_TYPE;
   };
 }) => {
-  console.log(project);
   return (
     <Layout>
       <MaxComponent>
@@ -28,12 +27,12 @@ const Slug = ({
           <div className="col-span-full lg:col-span-5">
             <div className="mx-auto space-y-4 bg-white p-3 md:p-8 pt-8 md:pt-16">
               <img
-                src={"https:" + project.fields.heroBanner?.fields.file?.url}
+                src={"https:" + project?.fields?.heroBanner?.fields.file?.url}
                 alt="project banner"
                 className="w-full object-cover max-h-[500px] object-center"
               />
               <div>
-                {documentToReactComponents(project.fields.projectContent)}
+                {documentToReactComponents(project?.fields?.projectContent)}
               </div>
             </div>
           </div>
