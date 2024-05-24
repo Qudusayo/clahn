@@ -58,7 +58,7 @@ function Hero({
           {title}
         </h1>
         <p className="text-base md:text-balance md:text-xl">{description}</p>
-        {showDonateButton && <Button>Donate</Button>}
+        {showDonateButton && <Button>Donate Now</Button>}
       </div>
       <div className="relative -order-1 mx-auto w-4/5 max-w-[600px] md:order-1">
         <img
@@ -69,7 +69,7 @@ function Hero({
         <div className="absolute -top-[3%] left-1/2 -z-10 h-2/4 w-[107%] -translate-x-1/2 transform rounded-t-3xl bg-[#03874894]"></div>
       </div>
 
-      <div className="absolute h-[90%] w-3 bg-[#03874894]"></div>
+      <div className="absolute h-[90%] w-1.5 md:w-3 bg-[#03874894]"></div>
     </div>
   );
 }

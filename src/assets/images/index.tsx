@@ -55,3 +55,6 @@ export { default as Partner2 } from "./partners/partner-2.png";
 export { default as Partner3 } from "./partners/partner-3.png";
 export { default as Partner4 } from "./partners/partner-4.png";
 export { default as Partner5 } from "./partners/partner-5.png";
+
+// Others
+export { default as PaystackOptions } from "./paystack.png";

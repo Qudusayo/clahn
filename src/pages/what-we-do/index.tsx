@@ -5,6 +5,7 @@ import { Icons } from "@/assets/icons";
 import MaxComponent from "@/components/organism/MaxComponent";
 import { createClient } from "contentful";
 import { CONTENT_TYPE, IProject, IProjectFields } from "@/types/contentful";
+import Link from "next/link";
 
 const WhatWeDo = ({ projects }: { projects: IProject[] }) => {
   return (
@@ -17,36 +18,36 @@ const WhatWeDo = ({ projects }: { projects: IProject[] }) => {
       <MaxComponent className="flex flex-col gap-10 py-16 lg:flex-row">
         <div className="flex flex-1 flex-col justify-between space-y-10">
           <BlockContent
-            Icon={<Icons.EducationalWebinars className="w-3/5" />}
+            Icon={<Icons.EducationalWebinars />}
             title="Educational webinars"
             description="CLAHN Initiative has single-handedly and in conjunction with other brands organized about 30 webinars. A lot of prominent speakers in different fields have been invited to speak, some of these speakers include, Olumide Onadipe(visual artist), Doyinsola Ogunye, Dr. Femi Idowu Adegoke, Dr. Joila Jacobs, and Dr. Martins Meiske."
           />
           <BlockContent
-            Icon={<Icons.CommunityCleanUp className="w-3/5" />}
+            Icon={<Icons.CommunityCleanUp />}
             title="Community cleanups"
             description="In our mission to a create cleaner, greener, and healthier community for all, we have mobilized 3 Community cleanups. We mobilize like-minded individuals, roll up our sleeves, and pick up the litters that make our communities unhealthy."
           />
           <BlockContent
-            Icon={<Icons.HealthEducation className="w-3/5" />}
+            Icon={<Icons.HealthEducation />}
             title="Health Education"
             description="We engage in advocacy and policy work to promote health education and support initiatives that improve access to healthcare and healthy living resources for all members of the community."
           />
         </div>
-        <div className="flex flex-1 flex-col justify-between space-y-10 border-l-[#5E5E5E] lg:border-l lg:pl-10">
+        <div className="flex flex-1 flex-col justify-between space-y-10 border-l-[#9a9a9a25] lg:border-l lg:pl-10">
           <BlockContent
-            Icon={<Icons.HealthOutreaches className="w-3/5" />}
+            Icon={<Icons.HealthOutreaches />}
             title="Health Outreaches"
             description="We have conducted about 15 outreaches over time which include celebrating World Environment Day with students of Redeemer's secondary school where the students were taught their roles in ensuring a cleaner and healthier environment. Our team also conducted an outreach to commemorate World Cancer Day, at Ito Omu Island."
           />
           <BlockContent
-            Icon={<Icons.GreenSpaceCreation className="w-3/5" />}
+            Icon={<Icons.GreenSpaceCreation />}
             title="Green Space Creation"
             description="Plastics are the major elements that litter the environment, so at CLAHN, our mission is to recover and repurpose plastic waste, creating a sustainable and circular economy while actively contributing to the restoration of our oceans and environment. Over the years we’ve organized plastic getaway and plastic recovery events and recovered over 2 metric tons of plastic"
           />
           <BlockContent
-            Icon={<Icons.CollaborativeInitiative className="w-3/5" />}
+            Icon={<Icons.CollaborativeInitiative />}
             title="Collaborative Initiative"
-            description="We Collaborate with other NGOs, government agencies, businesses, and local communities to gather resources, share expertise, and collectively address health and environmental challengesf"
+            description="We Collaborate with other NGOs, government agencies, businesses, and local communities to gather resources, share expertise, and collectively address health and environmental challenges"
           />
         </div>
       </MaxComponent>
@@ -58,6 +59,7 @@ const WhatWeDo = ({ projects }: { projects: IProject[] }) => {
               <Event
                 key={project.sys.id}
                 project={project.fields as IProjectFields}
+                id={project.sys.id}
               />
             ))}
           </div>
@@ -78,7 +80,7 @@ const BlockContent = ({
 }) => {
   return (
     <div className="flex flex-col gap-6 lg:flex-row">
-      <div className="box-content flex  h-20 w-20 items-center justify-center rounded-full border-4 p-4 md:h-28 md:w-28 lg:h-32 lg:w-32">
+      <div className="box-content flex  h-20 w-20 items-center justify-center p-4 md:h-28 md:w-28 lg:h-48 lg:w-48">
         {Icon as React.ReactElement}
       </div>
       <div className="flex-1 space-y-4">
@@ -91,7 +93,7 @@ const BlockContent = ({
   );
 };
 
-const Event = ({ project }: { project: IProjectFields }) => {
+const Event = ({ project, id }: { project: IProjectFields; id: string }) => {
   return (
     <div className="flex w-full flex-col items-center gap-5 rounded-3xl bg-white md:flex-row md:gap-10">
       <img
@@ -104,8 +106,10 @@ const Event = ({ project }: { project: IProjectFields }) => {
           {project.title}
         </h2>
         <p>
-          {project.description}...
-          <span className="text-[#038748] underline">See more</span>
+          {project.description}
+          <Link href={"/what-we-do/" + id} className="text-[#038748] underline">
+            See more
+          </Link>
         </p>
         <div className="flex items-center gap-4">
           <Icons.Calender />

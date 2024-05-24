@@ -12,6 +12,13 @@ const Events = ({ events }: { events: IEvent[] }) => {
     return new Date(eventFields.date as string) < new Date();
   });
 
+  const upcomingEvents = events
+    .filter((event) => {
+      const eventFields = event.fields as IEventFields;
+      return new Date(eventFields.date as string) > new Date();
+    })
+    .reverse();
+
   return (
     <Layout>
       <Hero
@@ -19,12 +26,23 @@ const Events = ({ events }: { events: IEvent[] }) => {
         title="Events"
         description="We organize events all around positive social change to bring community development"
       />
-      {/* <div className="bg-[#FFF] pb-20 pt-16">
+      <div className="bg-[#FFF] pb-20 pt-16 space-y-4">
         <h2 className="pb-16 text-center text-2xl font-semibold">
           Upcoming Events
         </h2>
-        <UpcomingEvent />
-      </div> */}
+        {upcomingEvents.length === 0 ? (
+          <div className="text-center text-[#5E5E5E]">
+            <p>There are no upcoming events.</p>
+          </div>
+        ) : (
+          upcomingEvents.map((event) => (
+            <UpcomingEvent
+              event={event.fields as IEventFields}
+              key={event.sys.id}
+            />
+          ))
+        )}
+      </div>
       <div className="bg-[#EBF4F2] pb-20 pt-16">
         <h2 className="pb-16 text-center text-2xl font-semibold">
           Past Events
@@ -65,30 +83,29 @@ const PastEventCard = ({ event }: { event: IEventFields }) => {
   );
 };
 
-const UpcomingEvent = () => (
+const UpcomingEvent = ({ event }: { event: IEventFields }) => (
   <MaxComponent className="mx-auto flex max-w-6xl flex-col items-center rounded-3xl border border-[#5e5e5e4d] bg-white md:flex-row md:gap-10 md:pr-10">
     <img
-      src={UpComingEventImg.src}
+      src={"https:" + event.banner?.fields.file?.url}
       alt="selfie"
-      className="w-full rounded-t-3xl border-r border-[#5e5e5e4d] object-cover md:max-w-96 md:rounded-l-3xl md:rounded-t-none"
+      className="w-full rounded-t-3xl border-r border-[#5e5e5e4d] object-cover md:max-w-96 md:rounded-l-3xl md:rounded-tr-none"
     />
     <div className="space-y-4 px-4 pb-8 md:px-0 md:pb-0">
-      <h2 className="text-2xl font-semibold text-[#1B1717]">
-        Strategies for promoting a clean and sustainable environment in Nigeria
-      </h2>
-      <p>
-        Advisory Board meeting with the purpose of looking forward: on the
-        annual plan 2025. The advisory board meeting is a closed meeting that
-        includes the board and our three advisory board members.
-      </p>
+      <h2 className="text-2xl font-semibold text-[#1B1717]">{event.title}</h2>
+      <p>{event.description}</p>
       <div className="flex items-center gap-10 text-sm md:text-base">
         <div className="flex items-center gap-4">
           <Icons.Calender className="w-7" />
-          <span className="text-[#5E5E5E]">16th feb, 2024.</span>
+          <span className="text-[#5E5E5E]">
+            {new Date(event.date as string).toDateString()}
+          </span>
         </div>
         <div className="flex items-center gap-4">
           <Icons.Clock className="w-7" />
-          <span className="text-[#5E5E5E]">17:00 - 18:00 WAT</span>
+          {/* <span className="text-[#5E5E5E]">17:00 - 18:00 WAT</span> */}
+          <span className="text-[#5E5E5E]">
+            {new Date(event.date as string).toLocaleTimeString()}
+          </span>
         </div>
       </div>
     </div>
