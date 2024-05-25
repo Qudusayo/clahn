@@ -21,7 +21,7 @@ const onClose = () => {
 const PaystackButton = () => {
   const initializePayment = usePaystackPayment(config);
   return (
-    <div className="w-fit mx-auto">
+    <div className="w-fit md:mx-auto">
       <Button
         onClick={() => {
           initializePayment({

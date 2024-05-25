@@ -14,27 +14,29 @@ const GetInvolved = () => {
         title="Ways to Make a Difference"
         description="Learn all the ways you can connect with our community!"
       />
-      <FlexCard
-        title="Volunteer with CLAHN"
-        content="CLAHN (The Cleaner and Healthier Nature) initiative is a non-governmental organization committed to championing environmental sustainability and public health in Nigeria. We operate with the understanding that a thriving environment is fundamental to the well-being of communities."
-        buttonTitle="Apply Below"
-        borderPositon="top-right"
-        image={WhoWeAreImg.src}
-      />
-      <FlexCard
-        title="Partner with CLAHN"
-        content="CLAHN (The Cleaner and Healthier Nature) initiative is a non-governmental organization committed to championing environmental sustainability and public health in Nigeria. We operate with the understanding that a thriving environment is fundamental to the well-being of communities."
-        buttonTitle="Apply Below"
-        borderPositon="bottom-left"
-        image={WhoWeAreImg.src}
-      />
-      <FlexCard
-        title="Give Today"
-        content="CLAHN (The Cleaner and Healthier Nature) initiative is a non-governmental organization committed to championing environmental sustainability and public health in Nigeria. We operate with the understanding that a thriving environment is fundamental to the well-being of communities."
-        buttonTitle="Donate Now"
-        borderPositon="top-right"
-        image={WhoWeAreImg.src}
-      />
+      <div className="space-y-10 my-10">
+        <FlexCard
+          title="Volunteer with CLAHN"
+          content="CLAHN (The Cleaner and Healthier Nature) initiative is a non-governmental organization committed to championing environmental sustainability and public health in Nigeria. We operate with the understanding that a thriving environment is fundamental to the well-being of communities."
+          buttonTitle="Apply Below"
+          borderPositon="top-right"
+          image={WhoWeAreImg.src}
+        />
+        <FlexCard
+          title="Partner with CLAHN"
+          content="CLAHN (The Cleaner and Healthier Nature) initiative is a non-governmental organization committed to championing environmental sustainability and public health in Nigeria. We operate with the understanding that a thriving environment is fundamental to the well-being of communities."
+          buttonTitle="Apply Below"
+          borderPositon="bottom-left"
+          image={WhoWeAreImg.src}
+        />
+        <FlexCard
+          title="Give Today"
+          content="CLAHN (The Cleaner and Healthier Nature) initiative is a non-governmental organization committed to championing environmental sustainability and public health in Nigeria. We operate with the understanding that a thriving environment is fundamental to the well-being of communities."
+          buttonTitle="Donate Now"
+          borderPositon="top-right"
+          image={WhoWeAreImg.src}
+        />
+      </div>
       <div className="bg-[#F6F6F6] pb-20 pt-16">
         <MaxComponent>
           <h2 className="text-balance pb-8 text-left text-2xl font-semibold md:pb-16 md:text-center">
@@ -102,30 +104,32 @@ const GetInvolved = () => {
         </MaxComponent>
 
         <div className="mx-auto mt-12 grid w-[90%] max-w-5xl grid-cols-6 gap-y-10 ">
-          <div className="col-span-3 space-y-4 md:col-span-2">
-            <div className="w-fit rounded-full border border-[#5e5e5e4d] bg-white">
-              <Icons.Message className="h-12 w-12" />
-            </div>
+          <div className="col-span-3 space-y-4 md:col-span-2 break-words text-sm md:text-base font-semibold">
+            <FooterIcon Icon={<Icons.Message className="w-4/5" />} />
             <p>Say Hi!</p>
             <p>info@clahninitiative.org</p>
           </div>
-          <div className="col-span-3 space-y-4 md:col-span-2">
-            <div className="w-fit rounded-full border border-[#5e5e5e4d] bg-white">
-              <Icons.Call className="h-12 w-12" />
-            </div>
+          <div className="col-span-3 space-y-4 md:col-span-2 text-sm md:text-base font-semibold">
+            <FooterIcon Icon={<Icons.Call className="w-full" />} />
             <p>Let&apos;s Talk</p>
             <p> +234 817 7477 995</p>
           </div>
-          <div className="col-span-full space-y-4 md:col-span-2">
-            <div className="w-fit rounded-full border border-[#5e5e5e4d] bg-white">
-              <Icons.Location className="h-12 w-12" />
-            </div>
+          <div className="col-span-full space-y-4 md:col-span-2 text-sm md:text-base font-semibold">
+            <FooterIcon Icon={<Icons.Location className="w-4/5" />} />
             <p>Our Location</p>
             <p>18, Labake Estate, Akobo, Ibadan, Ibadan, Oyo State, Nigeria.</p>
           </div>
         </div>
       </div>
     </Layout>
+  );
+};
+
+const FooterIcon = ({ Icon }: { Icon: React.ReactElement }) => {
+  return (
+    <div className="rounded-full border border-[#5e5e5e4d] bg-white h-12 w-12 flex items-center justify-center">
+      {Icon}
+    </div>
   );
 };
 

@@ -43,11 +43,7 @@ const footerLinks = [
     link: "/donate-now",
   },
 ];
-const phoneNumbers = [
-  "+234-806-590-3150",
-  "+234-805-165-9422",
-  "+234-8030-676-992",
-];
+const phoneNumbers = ["+2348053464399", "+12065105572"];
 
 const Footer = () => {
   return (
@@ -119,11 +115,11 @@ const Footer = () => {
               Join our dynamic team, contribute your skills, and together,
               let&apos;s shape a better world for all. Your time and dedication
               can truly make a difference. Volunteer with CLAHN today and be
-              part of something extraordinary.!`&rdquo;`
+              part of something extraordinary.!&rdquo;
             </p>
             <Button className="h-14 min-w-40 rounded-3xl">Volunteer now</Button>
           </div>
-          <div className="mx-auto flex w-full flex-1 flex-col items-start justify-between gap-8 border-t border-t-[#5E5E5E] py-6 md:w-4/5 md:gap-10 md:border-l md:border-t-0 md:border-l-[#5E5E5E] md:py-12 md:pl-10">
+          <div className="mx-auto flex w-full flex-1 flex-col items-start justify-between gap-8 border-t border-t-[#6f6f6f60] py-6 md:w-4/5 md:gap-10 md:border-l md:border-t-0 md:border-l-[#6f6f6f60] md:py-12 md:pl-10">
             <h2 className="text-3xl font-bold text-[#1B1717]">
               Make a difference
             </h2>

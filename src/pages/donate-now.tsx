@@ -13,15 +13,15 @@ const Donate = () => {
         title="Give Today"
         description="Join us on our mission to create access to quality healthcare services and information in the World's most underserved region and slums in Africa"
       />
-      <h1 className="text-4xl font-semibold text-[#1B1717] text-center py-10 mb-20">
+      <h1 className="md:text-4xl text-2xl text-balance font-semibold text-[#1B1717] text-center py-3 md:py-10 md:mb-20">
         Kindly Choose a Method of Donation
       </h1>
-      <section className="py-20 bg-[#EBF4F2] relative my-14">
+      <section className="md:py-20 py-10 bg-[#EBF4F2] relative my-10 md:my-14">
         <div className="bg-white w-14 h-14 md:w-28 md:h-28 flex items-center justify-center rounded-full absolute -top-7 md:-top-14 -translate-x-1/2 transform md:left-1/2 left-14">
           <DonateIcon className="mx-auto w-10 h-10 md:w-20 md:h-20" />
         </div>
         <MaxComponent className="space-y-4">
-          <h1 className="md:text-4xl text-2xl font-semibold text-[#038748] md:text-center py-4">
+          <h1 className="md:text-4xl text-2xl font-semibold text-[#038748] md:text-center py-2 md:py-4">
             Contribute through Paystack.
           </h1>
           <p className="text-[#1B1717] md:text-center text-sm md:text-lg mx-auto max-w-screen-lg">
@@ -37,11 +37,11 @@ const Donate = () => {
           <PaystackButton />
         </MaxComponent>
       </section>
-      <section className="py-4">
+      <section className="md:py-4">
         <MaxComponent className="grid grid-cols-1 gap-10 bg-contain lg:grid-cols-2 lg:gap-24">
           <div className="mx-auto flex flex-col items-start gap-5 border-l-8 border-[#FEE55D] bg-white p-4 py-8 md:gap-10 md:p-8 w-full shadow-card">
             <div>
-              <h2 className="text-3xl font-bold text-[#1B1717]">
+              <h2 className="text-xl md:text-3xl font-bold text-[#1B1717]">
                 Donate in Naira
               </h2>
               <span className="text-sm">
@@ -50,25 +50,17 @@ const Donate = () => {
             </div>
 
             <div className="space-y-4">
-              <div className="text-[#1B1717]">
-                <span>Account Number: </span>
-                <span className="font-semibold">1016577663</span>
-              </div>
-              <div className="text-[#1B1717]">
-                <span>Bank name: </span>
-                <span className="font-semibold">Zenith Bank</span>
-              </div>
-              <div className="text-[#1B1717]">
-                <span>Account name: </span>
-                <span className="font-semibold">
-                  Cleaner and Healthier Nature Initiative
-                </span>
-              </div>
+              <BankDetail title="Account Number" value="1016577663" allowCopy />
+              <BankDetail title="Bank name" value="Zenith Bank" />
+              <BankDetail
+                title="Account name"
+                value="Cleaner and Healthier Nature Initiative"
+              />
             </div>
           </div>
           <div className="mx-auto flex flex-col items-start gap-5 border-l-8 border-[#F0B99F] bg-white p-4 py-8 md:gap-10 md:p-8 w-full shadow-card">
             <div>
-              <h2 className="text-3xl font-bold text-[#1B1717]">
+              <h2 className="text-xl md:text-3xl font-bold text-[#1B1717]">
                 US Dollar Donation
               </h2>
               <span className="text-sm">
@@ -77,28 +69,14 @@ const Donate = () => {
             </div>
 
             <div className="space-y-4">
-              <div className="text-[#1B1717]">
-                <span>Account Number: </span>
-                <span className="font-semibold">5071741654</span>
-              </div>
-              <div className="text-[#1B1717]">
-                <span>Sort Code: </span>
-                <span className="font-semibold">057190023</span>
-              </div>
-              <div className="text-[#1B1717]">
-                <span>SWIFT Number: </span>
-                <span className="font-semibold">ZEIBNGLA</span>
-              </div>
-              <div className="text-[#1B1717]">
-                <span>Bank name: </span>
-                <span className="font-semibold">Zenith Bank</span>
-              </div>
-              <div className="text-[#1B1717]">
-                <span>Account name: </span>
-                <span className="font-semibold">
-                  Cleaner and Healthier Nature Initiative
-                </span>
-              </div>
+              <BankDetail title="Account Number" value="5071741654" allowCopy />
+              <BankDetail title="Sort Code" value="057190023" allowCopy />
+              <BankDetail title="SWIFT Number" value="ZEIBNGLA" allowCopy />
+              <BankDetail title="Bank name" value="Zenith Bank" />
+              <BankDetail
+                title="Account name"
+                value="Cleaner and Healthier Nature Initiative"
+              />
             </div>
           </div>
         </MaxComponent>
@@ -109,8 +87,32 @@ const Donate = () => {
         content="For every euro donated, one patient can benefit from an improved quality of healthcare, leading to positive health outcomes in the world's most deprived regions."
         borderPositon="top-right"
         image={WhoWeAreImg.src}
+        className="my-12"
       />
     </Layout>
+  );
+};
+
+const BankDetail = ({
+  title,
+  value,
+  allowCopy,
+}: {
+  title: string;
+  value: string;
+  allowCopy?: boolean;
+}) => {
+  return (
+    <div className="text-[#1B1717]">
+      <span>{title}: </span>
+      <span className="font-semibold">{value}</span>
+      {allowCopy && (
+        <Copy
+          className="ml-2 w-4 h-4 inline-block active:transform active:scale-110 cursor-pointer transition-transform"
+          onClick={() => navigator.clipboard.writeText(value)}
+        />
+      )}
+    </div>
   );
 };
 
@@ -147,6 +149,32 @@ const DonateIcon = (props: React.SVGProps<SVGSVGElement>) => (
     <path
       d="M33.5066 65.7108C31.1546 66.7963 28.4408 65.7108 27.5362 63.3588C26.4507 61.0068 27.5362 58.293 29.8882 57.3884C32.0592 56.3029 35.6777 64.6253 33.5066 65.7108Z"
       fill="#FFCDD2"
+    />
+  </svg>
+);
+
+const Copy = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={24}
+    height={24}
+    viewBox="0 0 24 24"
+    fill="none"
+    {...props}
+  >
+    <path
+      d="M8 4v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V7.242a2 2 0 0 0-.602-1.43L16.083 2.57A2 2 0 0 0 14.685 2H10a2 2 0 0 0-2 2"
+      stroke="#1B1717"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+    <path
+      d="M16 18v2a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V9a2 2 0 0 1 2-2h2"
+      stroke="#1B1717"
+      strokeWidth={2}
+      strokeLinecap="round"
+      strokeLinejoin="round"
     />
   </svg>
 );

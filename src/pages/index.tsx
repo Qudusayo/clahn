@@ -24,6 +24,7 @@ import { useState } from "react";
 import { createClient } from "contentful";
 import { CONTENT_TYPE, IEvent, IEventFields } from "@/types/contentful";
 import Partners from "@/components/partners";
+import Button from "@/components/ui/button";
 
 const Home = ({
   isPastEvent,
@@ -50,37 +51,39 @@ const Home = ({
         colouredBg
         className="pb-32"
       />
-      <div className="relative -top-24 mx-auto grid w-[90%] max-w-5xl grid-cols-2 gap-y-4 rounded-3xl bg-white py-5 shadow-md md:-top-14 md:grid-cols-4 -mb-32 md:-mb-0">
+      <div className="relative -top-24 mx-auto grid w-[90%] max-w-5xl grid-cols-2 gap-y-4 rounded-3xl bg-white py-5 shadow-md md:-top-14 md:grid-cols-4 -mb-8 md:-mb-0">
         <HeroCard title="6" content="Years" />
         <HeroCard className="border-l" title="30" content="Webinars" />
         <HeroCard className="md:border-l" title="6" content="Projects" />
         <HeroCard className="border-l" title="14" content="Outreaches" />
       </div>
-      <FlexCard
-        title="Who We Are"
-        content="CLAHN (The Cleaner and Healthier Nature) initiative is  a non-governmental organization committed to championing environmental sustainability and public health in Nigeria. We operate with the understanding that a thriving environment is fundamental to the well-being of communities."
-        buttonTitle="Learn More"
-        borderPositon="top-right"
-        image={WhoWeAreImg.src}
-      />
-      <FlexCard
-        title="What we do"
-        content="CLAHN Initiative is an independent, environmental nonprofit. We are on a mission to solve the world’s most complex systemic environmental challenges—on the ground, at scale, and with urgency"
-        buttonTitle="Donate now"
-        reversed
-        borderPositon="bottom-left"
-        image={WhatWeDoImg.src}
-      />
-      <FlexCard
-        title="Our projects"
-        content="CLAHN has pioneered some outreaches over the years which includes; celebrating world environment day and, also an outreach to commemorate the world cancer day in rural communities. In addition, CLAHN initiative has also collaborated with brands to carry out webinars and organize outreaches"
-        buttonTitle="Donate now"
-        borderPositon="top-right"
-        image={OurImpactsImg.src}
-      />
-      <div>
-        <div className="bg-[#BFFFE0] p-2 py-4 md:py-8">
-          <h2 className="text-center font-bold uppercase text-[#1B1717] text-xl md:text-4xl">
+      <div className="flex flex-col gap-14">
+        <FlexCard
+          title="Who We Are"
+          content="CLAHN (The Cleaner and Healthier Nature) initiative is a non-governmental organization committed to championing environmental sustainability and public health in Nigeria. We operate with the understanding that a thriving environment is fundamental to the well-being of communities."
+          buttonTitle="Learn More"
+          borderPositon="top-right"
+          image={WhoWeAreImg.src}
+        />
+        <FlexCard
+          title="What we do"
+          content="CLAHN Initiative is an independent, environmental nonprofit. We are on a mission to solve the world’s most complex systemic environmental challenges—on the ground, at scale, and with urgency"
+          buttonTitle="Donate now"
+          reversed
+          borderPositon="bottom-left"
+          image={WhatWeDoImg.src}
+        />
+        <FlexCard
+          title="Our projects"
+          content="CLAHN has pioneered some outreaches over the years which includes; celebrating world environment day and, also an outreach to commemorate the world cancer day in rural communities. In addition, CLAHN initiative has also collaborated with brands to carry out webinars and organize outreaches"
+          buttonTitle="Donate now"
+          borderPositon="top-right"
+          image={OurImpactsImg.src}
+        />
+      </div>
+      <div className="my-14">
+        <div className="bg-[#0CBE93] p-2 py-4 md:py-8">
+          <h2 className="text-center uppercase text-[#FFFFFF] text-xl md:text-4xl">
             SEE WHAT WE HAVE DONE TO THE EARTH
           </h2>
         </div>
@@ -122,21 +125,20 @@ const Home = ({
         <h2 className="text-center text-9xl font-bold leading-10 text-[#F36F00]">
           “
         </h2>
-        <div>
-          <h2 className="text-3xl font-bold text-white">
+        <div className="space-y-4">
+          <h2 className="text-2xl font-bold text-white">
             “Team work makes dream work”
           </h2>
-          <p className="text-xl text-white">
+          <p className="text-sm md:text-xl text-white w-4/5 mx-auto">
             Mide Arowosegbe, Founder Clahn initiative
           </p>
         </div>
       </div>
 
-      <MaxComponent className="my-28 space-y-10">
-        <h2 className="text-center text-4xl font-bold">
-          {isPastEvent ? "Past Events" : "Upcoming Events"}
+      <MaxComponent className="mt-14 mb-16 md:my-28 space-y-10">
+        <h2 className="text-center text-[28px] md:text-4xl font-bold">
+          Events
         </h2>
-
         <div className="mx-auto grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-10 lg:grid-cols-3">
           {events.map((event) => (
             <EventCard
@@ -145,6 +147,7 @@ const Home = ({
             />
           ))}
         </div>
+        <Button className="block mx-auto">View Events</Button>
       </MaxComponent>
     </Layout>
   );
@@ -218,8 +221,12 @@ const EventCard = ({ event }: { event: IEventFields }) => {
         className="rounded-3xl object-cover object-center"
       />
       <div className="space-y-1 py-2">
-        <span className="text-sm text-[#1B1717]">
-          {new Date(event.date as string).toDateString()}
+        <span className="text-xs text-[#1B1717]">
+          {new Date(event.date as string).toLocaleDateString("en-GB", {
+            day: "2-digit",
+            month: "short",
+            year: "numeric",
+          })}
         </span>
         <h2 className="text-xl font-bold">{event.title}</h2>
         <p>{event.description}</p>

@@ -1,6 +1,7 @@
 // Background Images
 export { default as HeroBg } from "./bg/hero.png";
 export { default as FooterBg } from "./bg/footer-bg.png";
+export { default as FooterMask } from "./bg/footer-bg.png";
 export { default as MissionAndVisionBG } from "./bg/mission-and-vision.png";
 export { default as MaskImg } from "./bg/mask.png";
 

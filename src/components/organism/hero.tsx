@@ -43,7 +43,7 @@ function Hero({
         backgroundColor: !colouredBg ? "#fafbfbb3" : "#BFFFE0",
       }}
     >
-      <div className=" col-span-1 mx-auto flex w-4/5 flex-col items-start gap-8 md:gap-10">
+      <div className=" col-span-1 mx-auto flex w-4/5 flex-col items-start gap-5 md:gap-10">
         {routeTitle && (
           <div className="hidden items-center justify-center gap-2 rounded-2xl border-l-2 border-[#188038] bg-white p-4 text-xl text-[#1B1717] md:flex">
             <span>Home</span>

@@ -1,3 +1,4 @@
+import clsx from "clsx";
 import Button from "../ui/button";
 
 const FlexCard = ({
@@ -7,6 +8,7 @@ const FlexCard = ({
   buttonTitle,
   reversed,
   borderPositon,
+  className,
 }: {
   title: string;
   image: string;
@@ -14,9 +16,15 @@ const FlexCard = ({
   buttonTitle?: string;
   reversed?: boolean;
   borderPositon?: "top-right" | "bottom-left";
+  className?: string;
 }) => {
   return (
-    <div className="mx-auto my-24 grid max-w-screen-xl grid-cols-1 gap-10 md:gap-20 lg:grid-cols-2">
+    <div
+      className={clsx(
+        "mx-auto grid max-w-screen-xl grid-cols-1 gap-8 md:gap-20 lg:grid-cols-2",
+        className
+      )}
+    >
       <div className="relative mx-auto w-10/12 max-w-[600px]">
         <img
           src={image}
@@ -43,13 +51,13 @@ const FlexCard = ({
         )}
       </div>
       <div
-        className={`mx-auto flex w-10/12 flex-col items-start justify-center  gap-4 md:gap-8 ${
+        className={`mx-auto flex w-10/12 flex-col items-start justify-center ${
           reversed ? "lg:-order-1" : "order-1"
         }`}
       >
-        <h2 className="text-2xl md:text-4xl font-bold"> {title} </h2>
+        <h2 className="text-xl md:text-4xl font-bold mb-4 md:mb-6"> {title} </h2>
         <p className="text-[14px] md:text-base font-medium"> {content} </p>
-        {buttonTitle && <Button>{buttonTitle}</Button>}
+        {buttonTitle && <Button className="mt-9">{buttonTitle}</Button>}
       </div>
     </div>
   );

@@ -43,8 +43,8 @@ const Events = ({ events }: { events: IEvent[] }) => {
           ))
         )}
       </div>
-      <div className="bg-[#EBF4F2] pb-20 pt-16">
-        <h2 className="pb-16 text-center text-2xl font-semibold">
+      <div className="bg-[#EBF4F2] py-8 pt-14 pb-20 md:py-16">
+        <h2 className="md:pb-16 pb-8 text-center text-2xl font-semibold">
           Past Events
         </h2>
         <MaxComponent className="mx-auto grid max-w-6xl grid-cols-1 gap-4 md:grid-cols-2 md:gap-20 lg:grid-cols-3">
@@ -62,20 +62,20 @@ const Events = ({ events }: { events: IEvent[] }) => {
 
 const PastEventCard = ({ event }: { event: IEventFields }) => {
   return (
-    <div>
-      <div className="overflow-hidden rounded-t-3xl">
+    <div className="bg-white rounded-2xl">
+      <div className="overflow-hidden rounded-t-2xl">
         <img
           src={"https:" + event.banner?.fields.file?.url}
           alt={event.title}
           className="object-cover object-center"
         />
       </div>
-      <div className="border px-6 py-2 rounded-b-3xl">
-        <h2>{event.title}</h2>
+      <div className="border-t px-6 py-2 pb-1 rounded-b-2xl">
+        <h2 className="font-semibold text-lg md:text-2xl">{event.title}</h2>
         <div className="flex items-center gap-2">
           <Icons.Calender className="w-6" />
-          <span className="text-[#5E5E5E]">
-            {new Date(event.date as string).toDateString()}
+          <span className="text-[#5E5E5E] text-sm md:text-base">
+            {new Date(event.date as string).toDateString()}.
           </span>
         </div>
       </div>
@@ -90,21 +90,27 @@ const UpcomingEvent = ({ event }: { event: IEventFields }) => (
       alt="selfie"
       className="w-full rounded-t-3xl border-r border-[#5e5e5e4d] object-cover md:max-w-96 md:rounded-l-3xl md:rounded-tr-none"
     />
-    <div className="space-y-4 px-4 pb-8 md:px-0 md:pb-0">
+    <div className="space-y-4 p-4  md:px-0 md:pb-0">
       <h2 className="text-2xl font-semibold text-[#1B1717]">{event.title}</h2>
-      <p>{event.description}</p>
+      <p className="text-sm md:text-base">{event.description}</p>
       <div className="flex items-center gap-10 text-sm md:text-base">
-        <div className="flex items-center gap-4">
-          <Icons.Calender className="w-7" />
+        <div className="flex items-center gap-1.5 md:gap-4">
+          <Icons.Calender className="w-5 md:w-7" />
           <span className="text-[#5E5E5E]">
-            {new Date(event.date as string).toDateString()}
+            {new Date(event.date as string).toLocaleDateString("en-GB", {
+              dateStyle: "medium",
+            })}
           </span>
         </div>
-        <div className="flex items-center gap-4">
-          <Icons.Clock className="w-7" />
+        <div className="flex items-center gap-1.5 md:gap-4">
+          <Icons.Clock className="w-5 md:w-7" />
           {/* <span className="text-[#5E5E5E]">17:00 - 18:00 WAT</span> */}
           <span className="text-[#5E5E5E]">
-            {new Date(event.date as string).toLocaleTimeString()}
+            {new Date(event.date as string).toLocaleTimeString("en-US", {
+              hour: "numeric",
+              minute: "numeric",
+              hour12: true,
+            })}
           </span>
         </div>
       </div>

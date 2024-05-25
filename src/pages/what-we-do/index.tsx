@@ -18,7 +18,7 @@ const WhatWeDo = ({ projects }: { projects: IProject[] }) => {
       <MaxComponent className="flex flex-col gap-10 py-16 lg:flex-row">
         <div className="flex flex-1 flex-col justify-between space-y-10">
           <BlockContent
-            Icon={<Icons.EducationalWebinars />}
+            Icon={<Icons.EducationalWebinars className="w-4/5" />}
             title="Educational webinars"
             description="CLAHN Initiative has single-handedly and in conjunction with other brands organized about 30 webinars. A lot of prominent speakers in different fields have been invited to speak, some of these speakers include, Olumide Onadipe(visual artist), Doyinsola Ogunye, Dr. Femi Idowu Adegoke, Dr. Joila Jacobs, and Dr. Martins Meiske."
           />
@@ -45,7 +45,7 @@ const WhatWeDo = ({ projects }: { projects: IProject[] }) => {
             description="Plastics are the major elements that litter the environment, so at CLAHN, our mission is to recover and repurpose plastic waste, creating a sustainable and circular economy while actively contributing to the restoration of our oceans and environment. Over the years we’ve organized plastic getaway and plastic recovery events and recovered over 2 metric tons of plastic"
           />
           <BlockContent
-            Icon={<Icons.CollaborativeInitiative />}
+            Icon={<Icons.CollaborativeInitiative className="w-4/5" />}
             title="Collaborative Initiative"
             description="We Collaborate with other NGOs, government agencies, businesses, and local communities to gather resources, share expertise, and collectively address health and environmental challenges"
           />
@@ -80,7 +80,7 @@ const BlockContent = ({
 }) => {
   return (
     <div className="flex flex-col gap-6 lg:flex-row">
-      <div className="box-content flex  h-20 w-20 items-center justify-center p-4 md:h-28 md:w-28 lg:h-48 lg:w-48">
+      <div className="box-border flex rounded-full border-2 h-28 w-28 items-center justify-center p-4 lg:h-48 lg:w-48 bg-white">
         {Icon as React.ReactElement}
       </div>
       <div className="flex-1 space-y-4">
