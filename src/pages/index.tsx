@@ -16,15 +16,19 @@ import {
   WhatWeDoImg,
   WhoWeAreImg,
   DreamHeroImg,
+  HomeHero1,
+  HomeHero2,
+  HomeHero3,
 } from "@/assets/images";
 import Hero from "@/components/organism/hero";
 import clsx from "clsx";
 import MaxComponent from "@/components/organism/MaxComponent";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { createClient } from "contentful";
 import { CONTENT_TYPE, IEvent, IEventFields } from "@/types/contentful";
 import Partners from "@/components/partners";
 import Button from "@/components/ui/button";
+import { cn } from "@/util";
 
 const Home = ({
   isPastEvent,
@@ -33,16 +37,44 @@ const Home = ({
   isPastEvent: boolean;
   events: IEvent[];
 }) => {
+  const images = [HomeHero1.src, HomeHero2.src, HomeHero3.src];
+  const texts = [
+    "collaborative initiative",
+    "community outreaches",
+    "green spaces creation",
+  ];
   const [dirtView, setDirtView] = useState(true);
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isFading, setIsFading] = useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      changeImage();
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [currentIndex]);
+
+  const changeImage = () => {
+    setIsFading(true);
+    setTimeout(() => {
+      setCurrentIndex((prevIndex) => (prevIndex + 1) % images.length);
+      setIsFading(false);
+    }, 500);
+  };
 
   return (
     <Layout>
       <Hero
-        heroImg={HomeHeroImg.src}
+        heroImg={images[currentIndex]}
+        imageClass={cn(
+          "transition-opacity duration-500 ease-in-out",
+          isFading ? "opacity-0" : "opacity-100"
+        )}
         title={
           <>
-            We elevate wellness through{" "}
-            <span className="text-[#E77F28]">educational webinars</span>
+            We are changing the narrative through{" "}
+            <span className="text-[#E77F28]">{texts[currentIndex]}</span>
           </>
         }
         description="CLAHN initiative envisions a sustainable environment where cleanliness
@@ -67,8 +99,8 @@ const Home = ({
         />
         <FlexCard
           title="What we do"
-          content="CLAHN Initiative is an independent, environmental nonprofit. We are on a mission to solve the world’s most complex systemic environmental challenges—on the ground, at scale, and with urgency"
-          buttonTitle="Donate now"
+          content="CLAHN Initiative is an independent, environmental nonprofit. We are on a mission to solve the world's most complex systemic environmental challenges—on the ground, at scale, and with urgency"
+          buttonTitle="Learn More"
           reversed
           borderPositon="bottom-left"
           image={WhatWeDoImg.src}
@@ -76,7 +108,7 @@ const Home = ({
         <FlexCard
           title="Our projects"
           content="CLAHN has pioneered some outreaches over the years which includes; celebrating world environment day and, also an outreach to commemorate the world cancer day in rural communities. In addition, CLAHN initiative has also collaborated with brands to carry out webinars and organize outreaches"
-          buttonTitle="Donate now"
+          buttonTitle="Learn More"
           borderPositon="top-right"
           image={OurImpactsImg.src}
         />
@@ -115,11 +147,9 @@ const Home = ({
       <Partners />
 
       <div
-        className="flex h-screen max-h-[446px] min-h-[357px] flex-col justify-center space-y-0 text-center"
+        className="apostrophe-section flex h-screen md:max-h-[446px] max-h-[357px] flex-col justify-center space-y-0 text-center"
         style={{
           background: `linear-gradient(rgba(3, 135, 72, 0.31), rgba(3, 135, 72, 0.31)), url(${DreamHeroImg.src}) no-repeat center center/cover`,
-          backgroundSize: "cover",
-          backgroundPosition: "center",
         }}
       >
         <h2 className="text-center text-9xl font-bold leading-10 text-[#F36F00]">

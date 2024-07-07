@@ -35,17 +35,17 @@ const WhoWeAre = () => {
           well-being of communities
         </p>
         <p>
-          Our mission is to empower individuals with the knowledge and tools
-          they need to contribute positively to their surroundings. We believe
-          that by fostering a deeper understanding of the relationship between
-          human actions and the environment, we can together build a healthier
-          and more sustainable future. Join us as we embark on the mission to
-          make our communities clean and individuals healthy!
+          It all started in 2018 with a passion to change the narrative on how
+          people interact with the environment and educate them on how their
+          actions towards the environment affect their health and that of the
+          coming generations. We started with raising social media awareness and
+          now outreaches, projects, and webinars.
         </p>
       </MaxComponent>
       <section
         style={{
-          background: `url(${MissionAndVisionBG}), lightgray 50% / cover no-repeat`,
+          background: `url(${MissionAndVisionBG.src}), lightgray 50% / cover no-repeat`,
+          mixBlendMode: "darken",
           backgroundColor: "#038748",
         }}
         className="py-20"
@@ -81,6 +81,7 @@ const WhoWeAre = () => {
         content="Our strategies for maintaining a new world order where cleanliness and healthy living are at the center include implementing educational programs to raise awareness about the benefits of healthy and hygienic living, Conducting workshops, seminars, and community forums to empower individuals with knowledge on sustainable practices, waste reduction, and the impact of environmental factors on health, among others."
         borderPositon="top-right"
         image={OurStrategyImg.src}
+        className="my-10 md:my-14"
       />
       <div className="bg-[#F6F5F5] py-12 md:py-16">
         <MaxComponent className="space-y-12 ">

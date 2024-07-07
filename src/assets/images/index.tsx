@@ -4,6 +4,7 @@ export { default as FooterBg } from "./bg/footer-bg.png";
 export { default as FooterMask } from "./bg/footer-bg.png";
 export { default as MissionAndVisionBG } from "./bg/mission-and-vision.png";
 export { default as MaskImg } from "./bg/mask.png";
+export { default as MissionVisionMask } from "./bg/mission-vision-bg.png";
 
 // Icons
 export { default as FooterLogo } from "./footer-logo.png";
@@ -24,6 +25,9 @@ export { default as GalleryHeroImg } from "./hero/gallery-hero.png";
 export { default as GetInvolvedHeroImg } from "./hero/get-involved-hero.png";
 export { default as DonateHeroImg } from "./hero/donate-hero.png";
 export { default as DreamHeroImg } from "./hero/dream-hero.jpeg";
+export { default as HomeHero1 } from "./hero/home-hero-1.png";
+export { default as HomeHero2 } from "./hero/home-hero-2.png";
+export { default as HomeHero3 } from "./hero/home-hero-3.png";
 
 // Team Images
 export { default as Adejoke } from "./team/adejoke.png";

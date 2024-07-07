@@ -6,6 +6,7 @@ import MaxComponent from "@/components/organism/MaxComponent";
 import { createClient } from "contentful";
 import { CONTENT_TYPE, IProject, IProjectFields } from "@/types/contentful";
 import Link from "next/link";
+import { formatDate } from "@/util";
 
 const WhatWeDo = ({ projects }: { projects: IProject[] }) => {
   return (
@@ -42,7 +43,7 @@ const WhatWeDo = ({ projects }: { projects: IProject[] }) => {
           <BlockContent
             Icon={<Icons.GreenSpaceCreation />}
             title="Green Space Creation"
-            description="Plastics are the major elements that litter the environment, so at CLAHN, our mission is to recover and repurpose plastic waste, creating a sustainable and circular economy while actively contributing to the restoration of our oceans and environment. Over the years we’ve organized plastic getaway and plastic recovery events and recovered over 2 metric tons of plastic"
+            description="Plastics are the major elements that litter the environment, so at CLAHN, our mission is to recover and repurpose plastic waste, creating a sustainable and circular economy while actively contributing to the restoration of our oceans and environment. Over the years we&apos;ve organized plastic getaway and plastic recovery events and recovered over 2 metric tons of plastic"
           />
           <BlockContent
             Icon={<Icons.CollaborativeInitiative className="w-4/5" />}
@@ -80,7 +81,7 @@ const BlockContent = ({
 }) => {
   return (
     <div className="flex flex-col gap-6 lg:flex-row">
-      <div className="box-border flex rounded-full border-2 h-28 w-28 items-center justify-center p-4 lg:h-48 lg:w-48 bg-white">
+      <div className="box-border flex rounded-full border-[6px] border-[#F0F0F0] h-28 w-28 items-center justify-center p-4 lg:h-48 lg:w-48 bg-white">
         {Icon as React.ReactElement}
       </div>
       <div className="flex-1 space-y-4">
@@ -114,7 +115,7 @@ const Event = ({ project, id }: { project: IProjectFields; id: string }) => {
         <div className="flex items-center gap-4">
           <Icons.Calender />
           <span className="text-[#5E5E5E]">
-            {project.location}.{new Date(project.eventDate).toDateString()}.
+            {project.location}.{formatDate(project.eventDate)}.
           </span>
         </div>
       </div>

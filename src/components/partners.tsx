@@ -25,7 +25,7 @@ const Partners = () => {
 
 const PartnerCard = ({ image }: { image: string }) => {
   return (
-    <div className="flex max-h-[171px] min-w-36 md:flex-1 items-center justify-center bg-[#BFFFE0] px-10 py-10">
+    <div className="flex h-[100px] md:h-[171px] min-w-36 md:flex-1 items-center justify-center bg-[#EBF4F2] px-10 py-10">
       <img src={image} alt="Partner 1" className="w-auto" />
     </div>
   );

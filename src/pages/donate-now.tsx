@@ -13,82 +13,91 @@ const Donate = () => {
         title="Give Today"
         description="Join us on our mission to create access to quality healthcare services and information in the World's most underserved region and slums in Africa"
       />
-      <h1 className="md:text-4xl text-2xl text-balance font-semibold text-[#1B1717] text-center py-3 md:py-10 md:mb-20">
-        Kindly Choose a Method of Donation
-      </h1>
-      <section className="md:py-20 py-10 bg-[#EBF4F2] relative my-10 md:my-14">
-        <div className="bg-white w-14 h-14 md:w-28 md:h-28 flex items-center justify-center rounded-full absolute -top-7 md:-top-14 -translate-x-1/2 transform md:left-1/2 left-14">
-          <DonateIcon className="mx-auto w-10 h-10 md:w-20 md:h-20" />
-        </div>
-        <MaxComponent className="space-y-4">
-          <h1 className="md:text-4xl text-2xl font-semibold text-[#038748] md:text-center py-2 md:py-4">
-            Contribute through Paystack.
-          </h1>
-          <p className="text-[#1B1717] md:text-center text-sm md:text-lg mx-auto max-w-screen-lg">
-            For every euro donated, one patient can benefit from an improved
-            quality of healthcare, leading to positive health outcomes in the
-            world&apos;s most deprived regions.
-          </p>
-          <img
-            src={PaystackOptions.src}
-            alt="donation-options"
-            className="mx-auto"
-          />
-          <PaystackButton />
-        </MaxComponent>
-      </section>
-      <section className="md:py-4">
-        <MaxComponent className="grid grid-cols-1 gap-10 bg-contain lg:grid-cols-2 lg:gap-24">
-          <div className="mx-auto flex flex-col items-start gap-5 border-l-8 border-[#FEE55D] bg-white p-4 py-8 md:gap-10 md:p-8 w-full shadow-card">
-            <div>
-              <h2 className="text-xl md:text-3xl font-bold text-[#1B1717]">
-                Donate in Naira
-              </h2>
-              <span className="text-sm">
-                You can also make your donations via:
-              </span>
-            </div>
-
-            <div className="space-y-4">
-              <BankDetail title="Account Number" value="1016577663" allowCopy />
-              <BankDetail title="Bank name" value="Zenith Bank" />
-              <BankDetail
-                title="Account name"
-                value="Cleaner and Healthier Nature Initiative"
-              />
-            </div>
+      <section className="bg-white py-10 pb-16">
+        <h1 className="md:text-4xl text-2xl text-balance font-semibold text-[#1B1717] text-center py-3 md:py-10 md:mb-20">
+          Kindly Choose a Method of Donation
+        </h1>
+        <section className="md:py-20 py-10 bg-[#EBF4F2] relative my-10 md:my-14">
+          <div className="bg-white w-14 h-14 md:w-28 md:h-28 flex items-center justify-center rounded-full absolute -top-7 md:-top-14 -translate-x-1/2 transform md:left-1/2 left-14 border-t">
+            <DonateIcon className="mx-auto w-10 h-10 md:w-20 md:h-20" />
           </div>
-          <div className="mx-auto flex flex-col items-start gap-5 border-l-8 border-[#F0B99F] bg-white p-4 py-8 md:gap-10 md:p-8 w-full shadow-card">
-            <div>
-              <h2 className="text-xl md:text-3xl font-bold text-[#1B1717]">
-                US Dollar Donation
-              </h2>
-              <span className="text-sm">
-                You can also make your donations via:
-              </span>
-            </div>
+          <MaxComponent className="space-y-4">
+            <h1 className="md:text-4xl text-2xl font-semibold text-[#038748] md:text-center py-2 md:py-4">
+              Contribute through Paystack.
+            </h1>
+            <p className="text-[#1B1717] md:text-center text-sm md:text-lg mx-auto max-w-screen-lg">
+              For every euro donated, one patient can benefit from an improved
+              quality of healthcare, leading to positive health outcomes in the
+              world&apos;s most deprived regions.
+            </p>
+            <img
+              src={PaystackOptions.src}
+              alt="donation-options"
+              className="mx-auto"
+            />
+            <PaystackButton />
+          </MaxComponent>
+        </section>
+        <section className="md:py-20 py-10">
+          <MaxComponent className="grid grid-cols-1 gap-10 bg-contain lg:grid-cols-2 lg:gap-24">
+            <div className="mx-auto flex flex-col items-start gap-5 border-l-8 border-[#FEE55D] bg-white p-4 py-8 md:gap-10 md:p-8 w-full shadow-card">
+              <div>
+                <h2 className="text-xl md:text-3xl font-bold text-[#1B1717]">
+                  Donate in Naira
+                </h2>
+                <span className="text-sm">
+                  You can also make your donations via:
+                </span>
+              </div>
 
-            <div className="space-y-4">
-              <BankDetail title="Account Number" value="5071741654" allowCopy />
-              <BankDetail title="Sort Code" value="057190023" allowCopy />
-              <BankDetail title="SWIFT Number" value="ZEIBNGLA" allowCopy />
-              <BankDetail title="Bank name" value="Zenith Bank" />
-              <BankDetail
-                title="Account name"
-                value="Cleaner and Healthier Nature Initiative"
-              />
+              <div className="space-y-4">
+                <BankDetail
+                  title="Account Number"
+                  value="1016577663"
+                  allowCopy
+                />
+                <BankDetail title="Bank name" value="Zenith Bank" />
+                <BankDetail
+                  title="Account name"
+                  value="Cleaner and Healthier Nature Initiative"
+                />
+              </div>
             </div>
-          </div>
-        </MaxComponent>
+            <div className="mx-auto flex flex-col items-start gap-5 border-l-8 border-[#F0B99F] bg-white p-4 py-8 md:gap-10 md:p-8 w-full shadow-card">
+              <div>
+                <h2 className="text-xl md:text-3xl font-bold text-[#1B1717]">
+                  US Dollar Donation
+                </h2>
+                <span className="text-sm">
+                  You can also make your donations via:
+                </span>
+              </div>
+
+              <div className="space-y-4">
+                <BankDetail
+                  title="Account Number"
+                  value="5071741654"
+                  allowCopy
+                />
+                <BankDetail title="Sort Code" value="057190023" allowCopy />
+                <BankDetail title="SWIFT Number" value="ZEIBNGLA" allowCopy />
+                <BankDetail title="Bank name" value="Zenith Bank" />
+                <BankDetail
+                  title="Account name"
+                  value="Cleaner and Healthier Nature Initiative"
+                />
+              </div>
+            </div>
+          </MaxComponent>
+        </section>
+
+        <FlexCard
+          title="How does your donation contribute?"
+          content="For every euro donated, one patient can benefit from an improved quality of healthcare, leading to positive health outcomes in the world's most deprived regions."
+          borderPositon="top-right"
+          image={WhoWeAreImg.src}
+        />
       </section>
-
-      <FlexCard
-        title="How does your donation contribute?"
-        content="For every euro donated, one patient can benefit from an improved quality of healthcare, leading to positive health outcomes in the world's most deprived regions."
-        borderPositon="top-right"
-        image={WhoWeAreImg.src}
-        className="my-12"
-      />
     </Layout>
   );
 };

@@ -1,8 +1,8 @@
 import Button from "../ui/button";
 import { HeroBg } from "@/assets/images";
 import { useEffect, useState } from "react";
-import { clsx } from "clsx";
 import { useRouter } from "next/router";
+import { cn } from "@/util";
 
 function Hero({
   heroImg,
@@ -11,6 +11,7 @@ function Hero({
   colouredBg,
   showDonateButton,
   className,
+  imageClass,
 }: {
   heroImg: string;
   title: React.ReactNode | string;
@@ -18,6 +19,7 @@ function Hero({
   colouredBg?: boolean;
   showDonateButton?: boolean;
   className?: string;
+  imageClass?: string;
 }) {
   const { pathname } = useRouter();
   const [routeTitle, setRouteTitle] = useState("");
@@ -31,7 +33,7 @@ function Hero({
 
   return (
     <div
-      className={clsx(
+      className={cn(
         "relative -z-20 grid grid-cols-1 items-center gap-8 py-12 md:min-h-[80vh] md:grid-cols-2",
         className
       )}
@@ -57,14 +59,19 @@ function Hero({
         <h1 className="text-balance text-left text-4xl font-bold md:text-6xl">
           {title}
         </h1>
-        <p className="text-base md:text-balance md:text-xl">{description}</p>
+        <p className="text-base md:text-xl">{description}</p>
         {showDonateButton && <Button>Donate Now</Button>}
       </div>
-      <div className="relative -order-1 mx-auto w-4/5 max-w-[600px] md:order-1">
+      <div
+        className={cn(
+          "relative -order-1 mx-auto w-4/5 max-w-[600px] md:order-1",
+          imageClass
+        )}
+      >
         <img
           src={heroImg}
           alt="Your Image"
-          className="z-10 h-full w-full rounded-t-3xl object-cover"
+          className={"z-10 h-full w-full rounded-t-3xl object-cover"}
         />
         <div className="absolute -top-[3%] left-1/2 -z-10 h-2/4 w-[107%] -translate-x-1/2 transform rounded-t-3xl bg-[#03874894]"></div>
       </div>

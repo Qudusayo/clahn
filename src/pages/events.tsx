@@ -4,6 +4,7 @@ import MaxComponent from "@/components/organism/MaxComponent";
 import Hero from "@/components/organism/hero";
 import Layout from "@/layout";
 import { CONTENT_TYPE, IEvent, IEventFields } from "@/types/contentful";
+import { formatDate } from "@/util";
 import { createClient } from "contentful";
 
 const Events = ({ events }: { events: IEvent[] }) => {
@@ -75,7 +76,7 @@ const PastEventCard = ({ event }: { event: IEventFields }) => {
         <div className="flex items-center gap-2">
           <Icons.Calender className="w-6" />
           <span className="text-[#5E5E5E] text-sm md:text-base">
-            {new Date(event.date as string).toDateString()}.
+            {formatDate(event.date as string)}.
           </span>
         </div>
       </div>
@@ -97,9 +98,7 @@ const UpcomingEvent = ({ event }: { event: IEventFields }) => (
         <div className="flex items-center gap-1.5 md:gap-4">
           <Icons.Calender className="w-5 md:w-7" />
           <span className="text-[#5E5E5E]">
-            {new Date(event.date as string).toLocaleDateString("en-GB", {
-              dateStyle: "medium",
-            })}
+            {formatDate(event.date as string)}
           </span>
         </div>
         <div className="flex items-center gap-1.5 md:gap-4">

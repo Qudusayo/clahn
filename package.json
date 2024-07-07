@@ -17,7 +17,8 @@
     "next": "14.2.3",
     "react": "^18",
     "react-dom": "^18",
-    "react-paystack": "^5.0.0"
+    "react-paystack": "^5.0.0",
+    "tailwind-merge": "^2.3.0"
   },
   "devDependencies": {
     "@types/node": "^20",

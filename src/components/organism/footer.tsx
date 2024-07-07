@@ -4,6 +4,7 @@ import Button from "../ui/button";
 import { FooterBg, FooterLogo } from "@/assets/images";
 import MaxComponent from "./MaxComponent";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 const footerLinks = [
   {
@@ -46,62 +47,67 @@ const footerLinks = [
 const phoneNumbers = ["+2348053464399", "+12065105572"];
 
 const Footer = () => {
+  const pathname = usePathname();
+  const newsLetterDisplayPaths = ["/", "/get-involved"].includes(pathname);
+
   return (
     <>
-      <section className="bg-[#BFFFE0] py-20">
-        <MaxComponent className="grid grid-cols-5 gap-10">
-          <div className="col-span-full flex flex-col justify-center gap-8 md:col-span-2">
-            <h2 className="text-2xl font-bold md:text-3xl">
-              Add a splash of eco-fun to your{" "}
-              <span className="text-[#E77F28]">inbox</span>
-            </h2>
-            <span>
-              Keep up to date with the work we are doing to provide
-              opportunities for marginalised communities around the world.
-            </span>
-          </div>
-          <form
-            action="#"
-            className="col-span-full space-y-8 rounded-3xl bg-[#FFF] p-8 py-12 md:col-span-3 md:col-start-3"
-          >
-            <div className="grid gap-10 md:grid-cols-2">
-              <div className="space-y-5">
-                <label htmlFor="firstName">First Name</label>
-                <input
-                  className="block w-full rounded-lg border border-gray-300 p-2.5 text-base text-gray-900 focus:border-blue-500 focus:ring-blue-500 "
-                  type="text"
-                  name="firstName"
-                  id="firstName"
-                />
-              </div>
-              <div className="space-y-5">
-                <label htmlFor="lastName">Last Name</label>
-                <input
-                  className="block w-full rounded-lg border border-gray-300 p-2.5 text-base text-gray-900 focus:border-blue-500 focus:ring-blue-500 "
-                  type="text"
-                  name="lastName"
-                  id="lastName"
-                />
-              </div>
-            </div>
-            <div className="space-y-5">
-              <label htmlFor="email">Email</label>
-              <input
-                className="block w-full rounded-lg border border-gray-300 p-2.5 text-base text-gray-900 focus:border-blue-500 focus:ring-blue-500 "
-                type="email"
-                name="email"
-                id="email"
-              />
-            </div>
-            <div>
+      {newsLetterDisplayPaths && (
+        <section className="bg-[#BFFFE0] py-20">
+          <MaxComponent className="grid grid-cols-5 gap-10">
+            <div className="col-span-full flex flex-col justify-center gap-8 md:col-span-2">
+              <h2 className="text-2xl font-bold md:text-3xl">
+                Add a splash of eco-fun to your{" "}
+                <span className="text-[#E77F28]">inbox</span>
+              </h2>
               <span>
-                I would like to receive information about volunteering
+                Keep up to date with the work we are doing to provide
+                opportunities for marginalised communities around the world.
               </span>
             </div>
-            <Button className="h-14 min-w-40 rounded-3xl">Subscribe</Button>
-          </form>
-        </MaxComponent>
-      </section>
+            <form
+              action="#"
+              className="col-span-full space-y-8 rounded-3xl bg-[#FFF] p-8 py-12 md:col-span-3 md:col-start-3"
+            >
+              <div className="grid gap-10 md:grid-cols-2">
+                <div className="space-y-5">
+                  <label htmlFor="firstName">First Name</label>
+                  <input
+                    className="block w-full rounded-lg border border-gray-300 p-2.5 text-base text-gray-900 focus:border-blue-500 focus:ring-blue-500 "
+                    type="text"
+                    name="firstName"
+                    id="firstName"
+                  />
+                </div>
+                <div className="space-y-5">
+                  <label htmlFor="lastName">Last Name</label>
+                  <input
+                    className="block w-full rounded-lg border border-gray-300 p-2.5 text-base text-gray-900 focus:border-blue-500 focus:ring-blue-500 "
+                    type="text"
+                    name="lastName"
+                    id="lastName"
+                  />
+                </div>
+              </div>
+              <div className="space-y-5">
+                <label htmlFor="email">Email</label>
+                <input
+                  className="block w-full rounded-lg border border-gray-300 p-2.5 text-base text-gray-900 focus:border-blue-500 focus:ring-blue-500 "
+                  type="email"
+                  name="email"
+                  id="email"
+                />
+              </div>
+              <div>
+                <span>
+                  I would like to receive information about volunteering
+                </span>
+              </div>
+              <Button className="min-w-40 rounded-3xl">Subscribe</Button>
+            </form>
+          </MaxComponent>
+        </section>
+      )}
       <section
         style={{
           background: `url(${FooterBg.src}), lightgray 0px 0px / 100% 277.457% no-repeat`,
@@ -117,7 +123,7 @@ const Footer = () => {
               can truly make a difference. Volunteer with CLAHN today and be
               part of something extraordinary.!&rdquo;
             </p>
-            <Button className="h-14 min-w-40 rounded-3xl">Volunteer now</Button>
+            <Button className="min-w-40 rounded-3xl">Volunteer now</Button>
           </div>
           <div className="mx-auto flex w-full flex-1 flex-col items-start justify-between gap-8 border-t border-t-[#6f6f6f60] py-6 md:w-4/5 md:gap-10 md:border-l md:border-t-0 md:border-l-[#6f6f6f60] md:py-12 md:pl-10">
             <h2 className="text-3xl font-bold text-[#1B1717]">
@@ -129,13 +135,13 @@ const Footer = () => {
               Together, we can make a lasting difference. Donate today and be a
               part of a greener future!
             </p>
-            <Button className="h-14 min-w-40 rounded-3xl">Donate Now</Button>
+            <Button className="min-w-40 rounded-3xl">Donate Now</Button>
           </div>
         </MaxComponent>
       </section>
       <footer className="bg-[#038748] py-8">
         <MaxComponent className="grid grid-cols-12 gap-y-10 break-words py-8 md:gap-10 md:gap-y-0 md:py-8">
-          <div className="col-span-full flex flex-col items-start justify-center md:col-span-5">
+          <div className="col-span-full flex flex-col items-start md:col-span-5">
             <div className="space-y-10 text-white">
               <img src={FooterLogo.src} alt="footer-logo" className="w-56" />
               <p className="whitespace-normal">
