@@ -96,7 +96,7 @@ const BlockContent = ({
 
 const Event = ({ project, id }: { project: IProjectFields; id: string }) => {
   return (
-    <div className="flex w-full flex-col items-center gap-5 rounded-3xl bg-white md:flex-row md:gap-10">
+    <div className="flex w-full flex-col items-center gap-5 rounded-3xl bg-white md:flex-row md:gap-10 md:pr-8">
       <img
         src={"https:" + project.heroBanner?.fields?.file?.url}
         alt="project banner"

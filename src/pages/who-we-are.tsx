@@ -85,7 +85,7 @@ const WhoWeAre = () => {
       />
       <div className="bg-[#F6F5F5] py-12 md:py-16">
         <MaxComponent className="space-y-12 ">
-          <h2 className="text-2xl font-semibold">Our Core Values</h2>
+          <h2 className="text-2xl font-semibold text-center">Our Core Values</h2>
           <div className="grid grid-cols-3 items-center justify-between gap-10 md:grid-cols-6">
             <CoreValue
               Icon={<Icons.Collaboration className="w-10" />}

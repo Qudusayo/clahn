@@ -47,12 +47,12 @@ function Hero({
     >
       <div className=" col-span-1 mx-auto flex w-4/5 flex-col items-start gap-5 md:gap-10">
         {routeTitle && (
-          <div className="hidden items-center justify-center gap-2 rounded-2xl border-l-2 border-[#188038] bg-white p-4 text-xl text-[#1B1717] md:flex">
+          <div className="hidden font-semibold items-center justify-center gap-2 rounded-2xl border-l-2 border-[#188038] bg-white p-4 text-xl text-[#1B1717] md:flex">
             <span>Home</span>
             <span className="text-balance">/</span>
             <div className="relative text-balance">
               <span>{routeTitle}</span>
-              <div className="absolute bottom-0 h-1 w-3/5 rounded-lg bg-[#F36F00]"></div>
+              {/* <div className="absolute bottom-0 h-1 w-3/5 rounded-lg bg-[#F36F00]"></div> */}
             </div>
           </div>
         )}
