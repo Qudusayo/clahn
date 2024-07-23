@@ -34,7 +34,7 @@ function Hero({
   return (
     <div
       className={cn(
-        "relative -z-20 grid grid-cols-1 items-center gap-8 py-12 md:min-h-[80vh] md:grid-cols-2",
+        "relative -z-20 grid grid-cols-1 items-center gap-8 py-12 md:min-h-[80vh] md:grid-cols-2 mb-8",
         className
       )}
       style={{

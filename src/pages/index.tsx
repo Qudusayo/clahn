@@ -89,7 +89,7 @@ const Home = ({
         <HeroCard className="md:border-l" title="6" content="Projects" />
         <HeroCard className="border-l" title="14" content="Outreaches" />
       </div>
-      <div className="flex flex-col gap-14">
+      <div className="flex flex-col gap-14 mt-8">
         <FlexCard
           title="Who We Are"
           content="CLAHN (The Cleaner and Healthier Nature) initiative is a non-governmental organization committed to championing environmental sustainability and public health in Nigeria. We operate with the understanding that a thriving environment is fundamental to the well-being of communities."
