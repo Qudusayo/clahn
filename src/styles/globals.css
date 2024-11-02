@@ -3,20 +3,20 @@
 @tailwind utilities;
 
 @layer base {
-  body {
-    background: #ffffff;
-  }
+	body {
+		background: #ffffff;
+	}
 
-  .apostrophe-section {
-    background-size: cover !important;
-    background-position: center !important;
-  }
+	.apostrophe-section {
+		background-size: cover !important;
+		background-position: center !important;
+	}
 
-  @media screen and (max-width: 768px) {
-    .apostrophe-section {
-      background-attachment: fixed;
-      background-size: 300% !important;
-      background-position: 50% 35% !important;
-    }
-  }
+	@media screen and (max-width: 768px) {
+		.apostrophe-section {
+			background-attachment: fixed;
+			background-size: 300% !important;
+			background-position: 50% 35% !important;
+		}
+	}
 }
