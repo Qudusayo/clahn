@@ -40,7 +40,7 @@ const Slug = ({
 								alt="project banner"
 								className="max-h-[500px] w-full object-cover object-center"
 							/>
-							<h2 className="text-3xl font-bold">{project.fields.title}</h2>
+							<h2 className="text-3xl font-bold">{project?.fields?.title}</h2>
 							<div>
 								{documentToReactComponents(project?.fields?.projectContent, {
 									preserveWhitespace: true,
@@ -55,11 +55,11 @@ const Slug = ({
 							<div className="space-y-3">
 								<ProjectDetails
 									title="Project"
-									description={project.fields.project}
+									description={project?.fields.project}
 								/>
 								<ProjectDetails
 									title="NGO"
-									description={project.fields.ngoPartnerships}
+									description={project?.fields.ngoPartnerships}
 								/>
 								<ProjectDetails
 									title="Location"
@@ -93,7 +93,7 @@ const Slug = ({
 const Header = ({ title }: { title: string }) => {
 	return (
 		<div className="flex items-center gap-3">
-			<div className="h-7 w-3 bg-[#F36F00]"></div>
+			<div className="h-7 w-3 bg-orange"></div>
 			<h2 className="text-2xl font-semibold text-[#1B1717]">{title}</h2>
 		</div>
 	);

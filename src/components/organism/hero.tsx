@@ -34,7 +34,7 @@ function Hero({
 	return (
 		<div
 			className={cn(
-				"relative -z-20 mb-8 grid grid-cols-1 items-center gap-8 py-12 md:min-h-[80vh] md:grid-cols-12",
+				"relative -z-20 grid grid-cols-1 items-center gap-8 py-12 md:min-h-[80vh] md:grid-cols-12",
 				className,
 			)}
 			style={{
@@ -52,7 +52,7 @@ function Hero({
 						<span className="text-balance">/</span>
 						<div className="relative text-balance">
 							<span>{routeTitle}</span>
-							{/* <div className="absolute bottom-0 h-1 w-3/5 rounded-lg bg-[#F36F00]"></div> */}
+							{/* <div className="absolute bottom-0 h-1 w-3/5 rounded-lg bg-orange"></div> */}
 						</div>
 					</div>
 				)}
@@ -73,7 +73,7 @@ function Hero({
 					alt="Your Image"
 					className={"z-10 h-full w-full rounded-t-3xl object-cover"}
 				/>
-				<div className="absolute -top-[3%] left-1/2 -z-10 h-2/4 w-[107%] -translate-x-1/2 transform rounded-t-3xl bg-[#03874894]"></div>
+				<div className="absolute -top-[3%] left-1/2 -z-10 h-2/5 w-[107%] -translate-x-1/2 transform rounded-t-3xl bg-[#03874894]"></div>
 			</div>
 
 			<div className="absolute h-[90%] w-1.5 bg-[#03874894] md:w-3"></div>

@@ -112,8 +112,8 @@ const Home = ({
 				/>
 			</div>
 			<div className="my-14">
-				<div className="bg-[#0CBE93] p-2 py-4 md:py-8">
-					<h2 className="text-center text-xl uppercase text-[#FFFFFF] md:text-4xl">
+				<div className="bg-[#BFFFE0] p-2 py-4 md:py-8">
+					<h2 className="text-center text-xl font-bold uppercase text-[#000000] md:text-4xl">
 						SEE WHAT WE HAVE DONE TO THE EARTH
 					</h2>
 				</div>
@@ -150,7 +150,7 @@ const Home = ({
 					background: `linear-gradient(rgba(3, 135, 72, 0.31), rgba(3, 135, 72, 0.31)), url(${DreamHeroImg.src}) no-repeat center center/cover`,
 				}}
 			>
-				<h2 className="text-center text-9xl font-bold leading-10 text-[#F36F00]">
+				<h2 className="text-orange text-center text-9xl font-bold leading-10">
 					“
 				</h2>
 				<div className="space-y-4">

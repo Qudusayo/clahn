@@ -32,22 +32,10 @@ const FlexCard = ({
 					className="z-10 h-full w-full rounded-t-3xl object-cover"
 				/>
 				{borderPositon && borderPositon === "top-right" && (
-					<div
-						className="absolute -top-[4%] left-1/2 -z-10 h-2/4 w-[106%] -translate-x-1/2 transform rounded-t-3xl"
-						style={{
-							background:
-								"linear-gradient(to right, transparent 0%, transparent 65%, #038748 65%, #038748 100%)",
-						}}
-					></div>
+					<div className="absolute -right-[3%] -top-[3%] -z-10 h-2/4 w-[35%] max-w-[206px] rounded-t-3xl bg-[#038748]"></div>
 				)}
 				{borderPositon && borderPositon === "bottom-left" && (
-					<div
-						className="absolute -bottom-[4%] left-1/2 -z-10 h-2/4 w-[106%] -translate-x-1/2 transform rounded-b-3xl"
-						style={{
-							background:
-								"linear-gradient(to right, #F36F00 0%, #F36F00 35%, transparent 35%, transparent 100%)",
-						}}
-					></div>
+					<div className="absolute -bottom-[3%] -left-[3%] -z-10 h-2/4 w-[35%] max-w-[206px] rounded-bl-[30px] rounded-br-2xl bg-orange"></div>
 				)}
 			</div>
 			<div

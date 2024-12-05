@@ -10,7 +10,7 @@ const Button = (
 
 	return (
 		<button
-			className={`rounded-[30px] bg-[#F36F00] px-4 py-3.5 text-center text-sm font-medium text-white md:h-[60px] md:px-7 ${className}`}
+			className={`rounded-[30px] bg-orange px-4 py-3.5 text-center text-sm font-medium text-white md:h-[60px] md:px-7 ${className}`}
 			{...rest}
 		>
 			{props.children}

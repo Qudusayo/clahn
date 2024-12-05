@@ -6,19 +6,27 @@ import Layout from "@/layout";
 import { CONTENT_TYPE, IEvent, IEventFields } from "@/types/contentful";
 import { formatDate } from "@/util";
 import { createClient } from "contentful";
+import { useEffect, useState } from "react";
 
 const Events = ({ events }: { events: IEvent[] }) => {
-	const oldEvents = events.filter(event => {
-		const eventFields = event.fields as IEventFields;
-		return new Date(eventFields.date as string) < new Date();
-	});
+	const [oldEvents, setOldEvents] = useState([] as IEvent[]);
+	const [upcomingEvents, setUpcomingEvents] = useState([] as IEvent[]);
 
-	const upcomingEvents = events
-		.filter(event => {
+	useEffect(() => {
+		const oldEvents = events.filter(event => {
 			const eventFields = event.fields as IEventFields;
-			return new Date(eventFields.date as string) > new Date();
-		})
-		.reverse();
+			return new Date(eventFields.date as string) < new Date();
+		});
+		setOldEvents(oldEvents);
+
+		const upcomingEvents = events
+			.filter(event => {
+				const eventFields = event.fields as IEventFields;
+				return new Date(eventFields.date as string) > new Date();
+			})
+			.reverse();
+		setUpcomingEvents(upcomingEvents);
+	}, [events]);
 
 	return (
 		<Layout>
@@ -48,7 +56,7 @@ const Events = ({ events }: { events: IEvent[] }) => {
 				<h2 className="pb-8 text-center text-2xl font-semibold md:pb-16">
 					Past Events
 				</h2>
-				<MaxComponent className="mx-auto grid max-w-6xl grid-cols-1 gap-4 md:grid-cols-2 md:gap-20 lg:grid-cols-3">
+				<MaxComponent className="mx-auto grid max-w-6xl grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
 					{oldEvents.map(event => (
 						<PastEventCard
 							key={event.sys.id}
@@ -72,7 +80,7 @@ const PastEventCard = ({ event }: { event: IEventFields }) => {
 				/>
 			</div>
 			<div className="rounded-b-2xl border-t px-6 py-2 pb-1">
-				<h2 className="text-lg font-semibold md:text-2xl">{event.title}</h2>
+				<h2 className="text-lg font-semibold">{event.title}</h2>
 				<div className="flex items-center gap-2">
 					<Icons.Calender className="w-6" />
 					<span className="text-sm text-[#5E5E5E] md:text-base">
