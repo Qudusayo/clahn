@@ -14,7 +14,7 @@ const GetInvolved = () => {
 				title="Ways to Make a Difference"
 				description="Learn all the ways you can connect with our community!"
 			/>
-			<div className="my-10 space-y-10">
+			<div className="my-10 space-y-10 md:my-20 md:space-y-20">
 				<FlexCard
 					title="Volunteer with CLAHN"
 					content="CLAHN (The Cleaner and Healthier Nature) initiative is a non-governmental organization committed to championing environmental sustainability and public health in Nigeria. We operate with the understanding that a thriving environment is fundamental to the well-being of communities."
