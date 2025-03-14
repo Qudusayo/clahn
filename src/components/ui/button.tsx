@@ -1,3 +1,4 @@
+import { cn } from "@/util";
 import React from "react";
 
 const Button = (
@@ -10,7 +11,10 @@ const Button = (
 
 	return (
 		<button
-			className={`rounded-[30px] bg-orange px-4 py-3.5 text-center text-sm font-medium text-white md:h-[60px] md:px-7 ${className}`}
+			className={cn(
+				"cursor-pointer rounded-3xl bg-orange px-4 py-3.5 text-center text-sm font-medium text-white md:h-[60px] md:px-7",
+				className,
+			)}
 			{...rest}
 		>
 			{props.children}

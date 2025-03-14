@@ -1,9 +1,9 @@
 import { HeroBg } from "@/assets/images";
 import { cn } from "@/util";
+import Link from "next/link";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Button from "../ui/button";
-import Link from "next/link";
 
 function Hero({
 	heroImg,
@@ -35,7 +35,7 @@ function Hero({
 	return (
 		<div
 			className={cn(
-				"relative -z-20 grid grid-cols-1 items-center gap-8 py-12 md:min-h-[80vh] md:grid-cols-12",
+				"relative grid grid-cols-1 items-center gap-8 py-12 md:min-h-[80vh] md:grid-cols-12",
 				className,
 			)}
 			style={{
