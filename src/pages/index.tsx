@@ -84,7 +84,7 @@ const Home = ({
 			/>
 			<div className="relative -top-20 mx-auto -mb-8 grid w-[90%] max-w-5xl grid-cols-2 gap-y-4 rounded-3xl bg-white py-5 shadow-md md:-top-16 md:-mb-0 md:grid-cols-4">
 				<HeroCard title="6" content="Years" />
-				<HeroCard className="border-l" title="30" content="Webinars" />
+				<HeroCard className="border-l" title="50+" content="Webinars" />
 				<HeroCard className="md:border-l" title="6" content="Projects" />
 				<HeroCard className="border-l" title="14" content="Outreaches" />
 			</div>
