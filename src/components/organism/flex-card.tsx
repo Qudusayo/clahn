@@ -1,4 +1,5 @@
 import clsx from "clsx";
+import Link from "next/link";
 import Button from "../ui/button";
 
 const FlexCard = ({
@@ -9,6 +10,8 @@ const FlexCard = ({
 	reversed,
 	borderPositon,
 	className,
+	linkTo,
+	clickHandler,
 }: {
 	title: string;
 	image: string;
@@ -17,6 +20,8 @@ const FlexCard = ({
 	reversed?: boolean;
 	borderPositon?: "top-right" | "bottom-left";
 	className?: string;
+	linkTo?: string;
+	clickHandler?: () => void;
 }) => {
 	return (
 		<div
@@ -45,7 +50,17 @@ const FlexCard = ({
 			>
 				<h2 className="mb-4 text-xl font-bold md:mb-6 md:text-4xl">{title}</h2>
 				<p className="text-[14px] font-medium md:text-base"> {content} </p>
-				{buttonTitle && <Button className="mt-9">{buttonTitle}</Button>}
+				{buttonTitle ? (
+					linkTo ? (
+						<Link href={linkTo}>
+							<Button className="mt-9">{buttonTitle}</Button>
+						</Link>
+					) : (
+						<Button className="mt-9" onClick={clickHandler}>
+							{buttonTitle}
+						</Button>
+					)
+				) : null}
 			</div>
 		</div>
 	);

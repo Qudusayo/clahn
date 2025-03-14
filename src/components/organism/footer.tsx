@@ -15,14 +15,14 @@ const footerLinks = [
 		title: "What we do",
 		link: "/what-we-do",
 	},
-	{
-		title: "Our projects",
-		link: "/our-projects",
-	},
-	{
-		title: "Our teams",
-		link: "/our-teams",
-	},
+	// {
+	// 	title: "Our projects",
+	// 	link: "/our-projects",
+	// },
+	// {
+	// 	title: "Our teams",
+	// 	link: "/our-teams",
+	// },
 	{
 		title: "Volunteer with us",
 		link: "/get-involved",
@@ -103,7 +103,9 @@ const Footer = () => {
 									I would like to receive information about volunteering
 								</span>
 							</div>
-							<Button className="min-w-40 rounded-3xl">Subscribe</Button>
+							<Button className="min-w-40 rounded-3xl" type="button">
+								Subscribe
+							</Button>
 						</form>
 					</MaxComponent>
 				</section>
@@ -125,9 +127,11 @@ const Footer = () => {
 							can truly make a difference. Volunteer with CLAHN today and be
 							part of something extraordinary.!&rdquo;
 						</p>
-						<Button className="mt-auto min-w-40 rounded-3xl">
-							Volunteer now
-						</Button>
+						<Link href="/get-involved">
+							<Button className="mt-auto min-w-40 rounded-3xl">
+								Volunteer now
+							</Button>
+						</Link>
 					</div>
 					<div className="mx-auto flex w-full flex-1 flex-col items-start gap-8 border-t border-t-[#6f6f6f60] py-6 md:w-4/5 md:gap-10 md:border-l md:border-t-0 md:border-l-[#6f6f6f60] md:py-12 md:pl-10">
 						<h2 className="text-[28px] font-bold text-[#1B1717]">
@@ -139,7 +143,11 @@ const Footer = () => {
 							Together, we can make a lasting difference. Donate today and be a
 							part of a greener future!
 						</p>
-						<Button className="mt-auto min-w-40 rounded-3xl">Donate Now</Button>
+						<Link href="/donate-now">
+							<Button className="mt-auto min-w-40 rounded-3xl">
+								Donate Now
+							</Button>
+						</Link>
 					</div>
 				</MaxComponent>
 			</section>

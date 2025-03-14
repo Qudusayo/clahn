@@ -3,6 +3,7 @@ import { cn } from "@/util";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import Button from "../ui/button";
+import Link from "next/link";
 
 function Hero({
 	heroImg,
@@ -60,7 +61,11 @@ function Hero({
 					{title}
 				</h1>
 				<p className="text-base md:text-xl">{description}</p>
-				{showDonateButton && <Button>Donate Now</Button>}
+				{showDonateButton && (
+					<Link href="/donate-now">
+						<Button>Donate Now</Button>
+					</Link>
+				)}
 			</div>
 			<div
 				className={cn(

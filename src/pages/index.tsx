@@ -26,6 +26,7 @@ import { CONTENT_TYPE, IEvent, IEventFields } from "@/types/contentful";
 import { cn } from "@/util";
 import clsx from "clsx";
 import { createClient } from "contentful";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const Home = ({
@@ -94,6 +95,7 @@ const Home = ({
 					buttonTitle="Learn More"
 					borderPositon="top-right"
 					image={WhoWeAreImg.src}
+					linkTo="/who-we-are"
 				/>
 				<FlexCard
 					title="What we do"
@@ -102,6 +104,7 @@ const Home = ({
 					reversed
 					borderPositon="bottom-left"
 					image={WhatWeDoImg.src}
+					linkTo="/what-we-do"
 				/>
 				<FlexCard
 					title="Our projects"
@@ -109,6 +112,7 @@ const Home = ({
 					buttonTitle="Learn More"
 					borderPositon="top-right"
 					image={OurImpactsImg.src}
+					linkTo="/gallery"
 				/>
 			</div>
 			<div className="my-14">
@@ -140,6 +144,7 @@ const Home = ({
 				borderPositon="top-right"
 				image={SupportOurMissionImg.src}
 				reversed
+				linkTo="/donate-now"
 			/>
 
 			<Partners />
@@ -175,7 +180,9 @@ const Home = ({
 						/>
 					))}
 				</div>
-				<Button className="mx-auto block">View Events</Button>
+				<Link href="/events">
+					<Button className="mx-auto block">View Events</Button>
+				</Link>
 			</MaxComponent>
 		</Layout>
 	);

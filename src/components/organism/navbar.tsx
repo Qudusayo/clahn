@@ -38,7 +38,9 @@ const Navbar = () => {
 			<div className="flex items-center justify-end gap-4 md:flex-1">
 				<NavContent isNavOpen={isNavOpen} setIsNavOpen={setIsNavOpen} />
 				<div className="flex items-center justify-end gap-4">
-					<Button className="text-nowrap">Donate now</Button>
+					<Link href="/donate-now">
+						<Button className="text-nowrap">Donate now</Button>
+					</Link>
 					<HamburgerMenu
 						open={isNavOpen}
 						width={30}

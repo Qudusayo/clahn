@@ -5,8 +5,17 @@ import FlexCard from "@/components/organism/flex-card";
 import Hero from "@/components/organism/hero";
 import Button from "@/components/ui/button";
 import Layout from "@/layout";
+import { useRef } from "react";
 
 const GetInvolved = () => {
+	const formInputRef = useRef<HTMLDivElement>(null);
+
+	const scrollToForm = () => {
+		if (formInputRef.current) {
+			formInputRef.current.scrollIntoView({ behavior: "smooth" });
+		}
+	};
+
 	return (
 		<Layout>
 			<Hero
@@ -21,6 +30,7 @@ const GetInvolved = () => {
 					buttonTitle="Apply Below"
 					borderPositon="top-right"
 					image={WhoWeAreImg.src}
+					clickHandler={scrollToForm}
 				/>
 				<FlexCard
 					title="Partner with CLAHN"
@@ -28,6 +38,7 @@ const GetInvolved = () => {
 					buttonTitle="Apply Below"
 					borderPositon="bottom-left"
 					image={WhoWeAreImg.src}
+					clickHandler={scrollToForm}
 				/>
 				<FlexCard
 					title="Give Today"
@@ -35,11 +46,15 @@ const GetInvolved = () => {
 					buttonTitle="Donate Now"
 					borderPositon="top-right"
 					image={WhoWeAreImg.src}
+					clickHandler={scrollToForm}
 				/>
 			</div>
 			<div className="bg-[#F6F6F6] pb-20 pt-16">
 				<MaxComponent>
-					<h2 className="text-balance pb-8 text-left text-2xl font-semibold md:pb-16 md:text-center">
+					<h2
+						className="text-balance pb-8 text-left text-2xl font-semibold md:pb-16 md:text-center"
+						ref={formInputRef}
+					>
 						Reach out to CLAHN INITIATIVE
 					</h2>
 					<form className="mx-auto max-w-5xl space-y-10 rounded-xl bg-[#FFF] p-6 md:p-12">
@@ -99,7 +114,7 @@ const GetInvolved = () => {
 							></textarea>
 						</div>
 
-						<Button>Submit</Button>
+						<Button type="button">Submit</Button>
 					</form>
 				</MaxComponent>
 
